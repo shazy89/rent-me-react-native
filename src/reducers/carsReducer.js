@@ -1,8 +1,6 @@
 export default (state={cars: []}, action) => {
     switch(action.type) {
-        
         case 'FETCH_CARS':
-            console.log(action.payload)
             return {
                 ...state, 
                 cars: action.peyload
@@ -11,3 +9,5 @@ export default (state={cars: []}, action) => {
             return state;
     }
 }
+        
+            
