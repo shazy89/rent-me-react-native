@@ -1,7 +1,12 @@
-export default (state={cars: [], bookingErrors: [], loading: true }, action) => {
+export default (state={cars: []}, action) => {
     switch(action.type) {
+        
         case 'FETCH_CARS':
-            return action.peyload 
+            console.log(action.payload)
+            return {
+                ...state, 
+                cars: action.peyload
+            } 
         default:
             return state;
     }
