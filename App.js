@@ -4,29 +4,31 @@ import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 import Test from './Test';
 import { Provider } from 'react-redux';
-import { createStore } from 'redux'
+import {createStore, applyMiddleware, compose} from 'redux'
 import rootReducer from './src/reducers/index';
 import thunk from 'redux-thunk';
+import HomeScreen from './src/screens/HomeScreen'
 
 
 const Stack = createStackNavigator();
 
+const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 
-
-let store = createStore(rootReducer)
+let store = createStore(rootReducer, composeEnhancers(applyMiddleware(thunk)))
 
 function App() {
   return (
    <Provider store={store}>
      <NavigationContainer>
        <Stack.Navigator>
-
          <Stack.Screen name="Test" component={Test} />
+         <Stack.Screen name="Home" component={HomeScreen} />
        </Stack.Navigator>
      </NavigationContainer>
     </Provider>   
   );
 }
+
 
 export default App;
 

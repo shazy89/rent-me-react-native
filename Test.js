@@ -5,7 +5,7 @@ const Test = ( { navigation } ) => {
     return (
       <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
         <Text>Hello Test Screen</Text>
-        <Button title="Go back" onPress={() => navigation.goBack()} />
+        <Button title="HomeScreen" onPress={() => navigation.navigate('Home')} />
       </View>
     );
   };
