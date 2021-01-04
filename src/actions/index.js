@@ -1,7 +1,9 @@
 import rentMeApi from '../api/rentMeApi';
 
 export const fetchCars = dispatch => async () => {
+    
     const response = await rentMeApi.get('cars');
+    console.log(response.data)
     dispatch({type: 'FETCH_CARS', peyload: response.data})
 };
 
