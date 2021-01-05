@@ -8,8 +8,9 @@ import { Provider } from 'react-redux';
 import {createStore, applyMiddleware, compose} from 'redux'
 import rootReducer from './src/reducers/index';
 import thunk from 'redux-thunk';
-import HomeScreen from './src/screens/HomeScreen'
-
+import TestScreen from './src/screens/TestScreen'
+import TrackListScreen from './TrackListScreen';
+import HomeScreen from './src/screens/HomeScreen';
 
 const Stack = createStackNavigator();
 
@@ -22,8 +23,10 @@ function App() {
    <Provider store={store}>
      <NavigationContainer>
        <Stack.Navigator>
+         <Stack.Screen name="Home" component={HomeScreen} options={{ headerShown: false }} />
          <Stack.Screen name="Test" component={Test} />
-         <Stack.Screen name="Home" component={HomeScreen} />
+         <Stack.Screen name="List" component={TrackListScreen} />
+
        </Stack.Navigator>
      </NavigationContainer>
     </Provider>   

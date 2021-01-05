@@ -1,37 +1,41 @@
-import React, { useContext } from 'react';
+import React from 'react';
 import { StyleSheet, Text, FlatList, TouchableOpacity } from 'react-native';
-import { NavigationEvents } from 'react-navigation';
-import { ListItem } from 'react-native-elements';
-import { Context as TrackContext } from '../context/TrackContext';
+
+import { ListItem, Icon } from 'react-native-elements'
+
 
 const TrackListScreen = ({ navigation }) => {
-  const { state, fetchTracks } = useContext(TrackContext);
 
+  const list = [
+    {
+      title: 'Appointments',
+      icon: 'av-timer'
+    },
+    {
+      title: 'Trips',
+      icon: 'flight-takeoff'
+    },
+  
+  ]
+
+  
   return (
     <>
-      <NavigationEvents onWillFocus={fetchTracks} />
-      <FlatList
-        data={state}
-        keyExtractor={item => item._id}
-        renderItem={({ item }) => {
-          return (
-            <TouchableOpacity
-              onPress={() =>
-                navigation.navigate('TrackDetail', { _id: item._id })
-              }
-            >
-              <ListItem chevron title={item.name} />
-            </TouchableOpacity>
-          );
-        }}
-      />
+  {
+    list.map((item, i) => (
+      <ListItem key={i} bottomDivider>
+        <Icon name={item.icon} />
+        <ListItem.Content>
+          <ListItem.Title>{item.title}</ListItem.Title>
+        </ListItem.Content>
+        <ListItem.Chevron />
+      </ListItem>
+    ))
+  }
     </>
   );
 };
 
-TrackListScreen.navigationOptions = {
-  title: 'Tracks'
-};
 
 const styles = StyleSheet.create({});
 
