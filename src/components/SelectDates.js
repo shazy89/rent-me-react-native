@@ -1,20 +1,27 @@
 import React, {useState} from 'react';
-import {View, Button, Platform, StyleSheet} from 'react-native';
+import {View, StyleSheet} from 'react-native';
+import { Button } from 'react-native-elements';
 import DateTimePicker from '@react-native-community/datetimepicker';
 import DatePicker from './DatePicker';
 import useSelectDate from '../hooks/useSelectDate';
+import { Ionicons } from '@expo/vector-icons';
 
 const SelectDates = () => {
 const [pickUpDate, returnDate, showReturn, 
        showPickUp, showReturnCalender, showPickUpCalender, 
        onChangePickUpDate, onChangeReturnDate ] = useSelectDate();
+     
  return (
   <>
-    <View >
-        <Button onPress={showPickUpCalender}  title="Pick-Up" />
-        <Button onPress={showReturnCalender}  title="Return" />
+    <View style={styles.datePickerView}>
+        <Button buttonStyle={styles.pickUpbutton} 
+                onPress={showPickUpCalender}  
+                title="Pick-Up" 
+                />
+        <Button buttonStyle={styles.returnButton} onPress={showReturnCalender}  title="Return" />
     </View>
-    <View style={styles.datePickerView}> 
+                
+    <View > 
        {showPickUp && (
          <DateTimePicker
          style={styles.datePicker}
@@ -22,28 +29,28 @@ const [pickUpDate, returnDate, showReturn,
          value={pickUpDate}
          mode='date'
          is24Hour={true}
-         display="default"
+         display="spinner"
          minimumDate={new Date()}
          onChange={onChangePickUpDate}
-       />
-     )}
+         /> 
+         )}
      {showReturn && (
        <DateTimePicker
          style={styles.datePicker}
          testID="dateTimePicker"
          value={returnDate}
-         mode={'date'}
+         mode='date'
          is24Hour={true}
          minimumDate={pickUpDate}
-         display="default"
+         display="spinner"
          onChange={onChangeReturnDate}
        />
      )}
     </View>
   </>
-);
+ );
 };
-
+         
 const styles = StyleSheet.create({
   datePickerView: {
     alignItems: 'center',
@@ -53,10 +60,23 @@ const styles = StyleSheet.create({
   datePicker: {
     width: '100%',
     borderColor: 'black',
-    borderBottomColor: 'red'
-    },
+  },
+  pickUpbutton: {
+    width: 100,
+    marginLeft: 20,
+    backgroundColor: 'red'
+  },
+  returnButton: {
+    width: 100,
+    marginLeft: 20,
+    backgroundColor: 'red'
+  }
+});
+       
 
-})
+
+   
+
       
 
     

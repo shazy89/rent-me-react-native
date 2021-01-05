@@ -6,6 +6,8 @@ export default () => {
     const [returnDate, setReturnDate] = useState(pickUpDate)
     const [showReturn, setShowReturn] = useState(false);
     const [showPickUp, setShowPickUp] = useState(false);
+    const [pickUpButton, setPickUpButton] = useState('red');
+    const [returnButton, setReturnButton] = useState('red');
 
 
     const onChangePickUpDate = (event, selectedDate) => {
@@ -14,18 +16,17 @@ export default () => {
         setPickUpDate(currentDate);
       };
     const onChangeReturnDate = (event, selectedDate) => {
-      console.log(selectedDate)
         const currentDate = selectedDate || returnDate;
         setShowReturn(Platform.OS === 'ios');
         setReturnDate(currentDate);
       };
       const showReturnCalender = () => {
         setShowReturn(true)
-      //  setShowPickUp(false)
+        setShowPickUp(false)
       };
       const showPickUpCalender = () => {
         setShowPickUp(true)
-      //  setShowReturn(false)
+        setShowReturn(false)
       };  
 
     return [pickUpDate, returnDate, showReturn, 
