@@ -25,8 +25,6 @@ return (
    );
  };
            
-
-            
  const styles = StyleSheet.create({
      backgroundImage: {
         width: '100%', 
@@ -50,6 +48,8 @@ return (
 
        
  });
+
+            
      
   
 

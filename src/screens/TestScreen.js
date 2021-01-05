@@ -39,22 +39,22 @@
      );
    };
   
-  
    const styles = StyleSheet.create({
+     item: {
+       padding: 20,
+       marginVertical: 8,
+       marginHorizontal: 16,
+       justifyContent: "center",
+       alignItems: "center",
+       
+     },
+     title: {
+       fontSize: 32,
+
+     },
+});
   
-        item: {
-          padding: 20,
-          marginVertical: 8,
-          marginHorizontal: 16,
-          justifyContent: "center",
-          alignItems: "center",
-          
-        },
-        title: {
-          fontSize: 32,
   
-        },
-   });
   
    const mapStateToProps = carsReducer => {
        return {

@@ -5,10 +5,10 @@ import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 import Test from './Test';
 import { Provider } from 'react-redux';
-import {createStore, applyMiddleware, compose} from 'redux'
+import {createStore, applyMiddleware, compose} from 'redux';
 import rootReducer from './src/reducers/index';
 import thunk from 'redux-thunk';
-import TestScreen from './src/screens/TestScreen'
+import BottomNavigator from './src/BottomNavigator';
 import TrackListScreen from './TrackListScreen';
 import HomeScreen from './src/screens/HomeScreen';
 
@@ -23,15 +23,15 @@ function App() {
    <Provider store={store}>
      <NavigationContainer>
        <Stack.Navigator>
-         <Stack.Screen name="Home" component={HomeScreen} options={{ headerShown: false }} />
+         <Stack.Screen name="BottomNavigator" component={BottomNavigator} options={{ headerShown: false }} />
          <Stack.Screen name="Test" component={Test} />
          <Stack.Screen name="List" component={TrackListScreen} />
        </Stack.Navigator>
-
      </NavigationContainer>
     </Provider>   
   );
 }
+
 
 export default App;
 

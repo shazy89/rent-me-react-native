@@ -44,8 +44,6 @@ const [pickUpDate, returnDate, showReturn,
 );
 };
 
-      
-
 const styles = StyleSheet.create({
   datePickerView: {
     alignItems: 'center',
@@ -59,6 +57,8 @@ const styles = StyleSheet.create({
     },
 
 })
+      
+
     
 
 
