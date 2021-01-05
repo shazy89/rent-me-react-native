@@ -43,8 +43,9 @@ return (
        fontFamily: "Cochin" 
     },
     datesView: {
-        margin: 20
-    }
+        margin: 20,
+      }
+
        
  });
      
