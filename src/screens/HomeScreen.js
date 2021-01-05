@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react'
-import { View, Button, StyleSheet, FlatList, TouchableOpacity, ImageBackground } from 'react-native';
-import { ListItem, Text, Avatar, Image } from 'react-native-elements';
+import { View, StyleSheet, FlatList, TouchableOpacity, ImageBackground } from 'react-native';
+import { ListItem, Text, Avatar, Image, Button } from 'react-native-elements';
 import SelectDates from '../components/SelectDates'
  // import { connect } from 'react-redux';
 // import { fetchCars } from '../actions/index'
@@ -21,9 +21,16 @@ return (
         <View  style={styles.datesView}>
            <SelectDates />
         </View>
-     </>
-   );
- };
+       <View> 
+        <Button
+           title="Check Availability"
+           buttonStyle={styles.availabilityButton}
+        />
+      </View>
+     
+    </>
+  );
+};
            
  const styles = StyleSheet.create({
      backgroundImage: {
@@ -41,13 +48,19 @@ return (
        fontFamily: "Cochin" 
     },
     datesView: {
-        flex: 1,
-        margin: 20,
-  }
+       flex: 1,
+       margin: 20,
+ 
+  },
+  availabilityButton: {
+   backgroundColor: '#00A800',
+   borderWidth: 1,
+       
+  }    
+});
 
 
        
- });
 
             
      

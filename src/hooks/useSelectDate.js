@@ -21,9 +21,11 @@ export default () => {
       };
       const showReturnCalender = () => {
         setShowReturn(true)
+      //  setShowPickUp(false)
       };
       const showPickUpCalender = () => {
         setShowPickUp(true)
+      //  setShowReturn(false)
       };  
 
     return [pickUpDate, returnDate, showReturn, 

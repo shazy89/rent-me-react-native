@@ -11,8 +11,8 @@ const [pickUpDate, returnDate, showReturn,
  return (
   <>
     <View >
-        <Button onPress={showPickUpCalender} title="Pick-Up" />
-        <Button onPress={showReturnCalender} title="Return" />
+        <Button onPress={showPickUpCalender}  title="Pick-Up" />
+        <Button onPress={showReturnCalender}  title="Return" />
     </View>
     <View style={styles.datePickerView}> 
        {showPickUp && (
@@ -20,7 +20,7 @@ const [pickUpDate, returnDate, showReturn,
          style={styles.datePicker}
          testID="dateTimePicker"
          value={pickUpDate}
-         mode={'date'}
+         mode='date'
          is24Hour={true}
          display="default"
          minimumDate={new Date()}
@@ -51,7 +51,7 @@ const styles = StyleSheet.create({
     justifyContent: "center",
   },
   datePicker: {
-    width:  120,
+    width: '100%',
     borderColor: 'black',
     borderBottomColor: 'red'
     },
