@@ -26,8 +26,8 @@ function App() {
          <Stack.Screen name="Home" component={HomeScreen} options={{ headerShown: false }} />
          <Stack.Screen name="Test" component={Test} />
          <Stack.Screen name="List" component={TrackListScreen} />
-
        </Stack.Navigator>
+
      </NavigationContainer>
     </Provider>   
   );

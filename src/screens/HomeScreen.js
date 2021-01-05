@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react'
 import { View, Button, StyleSheet, FlatList, TouchableOpacity, ImageBackground } from 'react-native';
-import { ListItem, Text, Avatar, Image } from 'react-native-elements'
+import { ListItem, Text, Avatar, Image } from 'react-native-elements';
+import SelectDates from '../components/SelectDates'
  // import { connect } from 'react-redux';
 // import { fetchCars } from '../actions/index'
 
@@ -16,6 +17,9 @@ return (
         />
         <View style={styles.heading}>
            <Text h2 style={styles.headingText}> Reserve A Vehicle</Text>
+        </View>
+        <View  style={styles.datesView}>
+           <SelectDates />
         </View>
      </>
    );
@@ -37,6 +41,9 @@ return (
      },
     headingText: {
        fontFamily: "Cochin" 
+    },
+    datesView: {
+        margin: 20
     }
        
  });

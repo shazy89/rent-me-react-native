@@ -1,47 +1,54 @@
 import React, {useState} from 'react';
-import {View, Button, Platform} from 'react-native';
+import {View, Button, Platform, StyleSheet} from 'react-native';
 import DateTimePicker from '@react-native-community/datetimepicker';
+import DatePicker from './DatePicker';
+import useSelectDate from '../hooks/useSelectDate';
 
 const SelectDates = () => {
-    const [date, setDate] = useState(new Date());
-    const [mode, setMode] = useState('date');
-    const [show, setShow] = useState(false);
+const [pickUpDate, returnDate, showReturn, 
+       showPickUp, showReturnCalender, showPickUpCalender, 
+       onChangePickUpDate, onChangeReturnDate ] = useSelectDate();
+ return (
+  <>
+    <View>
+     <Button onPress={showPickUpCalender} title="Pick-Up" />
+     </View>
+     <View>
+     <Button onPress={showReturnCalender} title="Return" />
+   </View>
+      <View > 
+          {showPickUp && (
+            <DateTimePicker
+              testID="dateTimePicker"
+              value={pickUpDate}
+              mode={'date'}
+              is24Hour={true}
+              display="default"
+              minimumDate={new Date()}
+              onChange={onChangePickUpDate}
+            />
+          )}
+          {showReturn && (
+            <DateTimePicker
+              testID="dateTimePicker"
+              value={returnDate}
+              mode={'date'}
+              is24Hour={true}
+              minimumDate={pickUpDate}
+              display="default"
+              onChange={onChangeReturnDate}
+            />
+          )}
+    </View> 
+ </>
 
-    const onChange = (event, selectedDate) => {
-        const currentDate = selectedDate || date;
-        setShow(Platform.OS === 'ios');
-        setDate(currentDate);
-      };
-      const showMode = (currentMode) => {
-        setShow(true);
-        setMode(currentMode);
-      };
-    
-      const showDatepicker = () => {
-        showMode('date');
-      };
 
-   return (
-       <>
-      <View>
-        <Button onPress={showDatepicker} title="Pick Up" />
-      </View>
-      <View>
-        <Button onPress={showDatepicker} title="Return" />
-      </View>
-      {show && (
-        <DateTimePicker
-          testID="dateTimePicker"
-          minimumDate={new Date()}
-          value={date}
-          mode={mode}
-          is24Hour={true}
-          display="default"
-          onChange={onChange}
-        />
-      )}
-    </>
- );
+);
 };
+
+const styles = StyleSheet.create({})
+
+
+
 
 export default SelectDates
