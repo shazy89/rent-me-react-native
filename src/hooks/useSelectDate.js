@@ -6,8 +6,8 @@ export default () => {
     const [returnDate, setReturnDate] = useState(pickUpDate)
     const [showReturn, setShowReturn] = useState(false);
     const [showPickUp, setShowPickUp] = useState(false);
-    const [pickUpButton, setPickUpButton] = useState('red');
-    const [returnButton, setReturnButton] = useState('red');
+    const [pickUpButton, setPickUpButton] = useState('#ffa500');
+    const [returnButton, setReturnButton] = useState('#ffa500');
 
 
     const onChangePickUpDate = (event, selectedDate) => {
@@ -23,14 +23,18 @@ export default () => {
       const showReturnCalender = () => {
         setShowReturn(true)
         setShowPickUp(false)
+        setPickUpButton('#ffa500')
+        setReturnButton('#D97E00')
       };
       const showPickUpCalender = () => {
         setShowPickUp(true)
         setShowReturn(false)
+        setReturnButton('#ffa500')
+        setPickUpButton('#D97E00')
       };  
 
     return [pickUpDate, returnDate, showReturn, 
             showPickUp, showReturnCalender, showPickUpCalender, 
-            onChangePickUpDate, onChangeReturnDate ];
+            onChangePickUpDate, onChangeReturnDate, pickUpButton, returnButton, ];
 
 };

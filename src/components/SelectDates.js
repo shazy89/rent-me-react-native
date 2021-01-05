@@ -9,16 +9,26 @@ import { Ionicons } from '@expo/vector-icons';
 const SelectDates = () => {
 const [pickUpDate, returnDate, showReturn, 
        showPickUp, showReturnCalender, showPickUpCalender, 
-       onChangePickUpDate, onChangeReturnDate ] = useSelectDate();
-     
+       onChangePickUpDate, onChangeReturnDate, pickUpButton, returnButton ] = useSelectDate();
+
  return (
   <>
     <View style={styles.datePickerView}>
-        <Button buttonStyle={styles.pickUpbutton} 
-                onPress={showPickUpCalender}  
-                title="Pick-Up" 
-                />
-        <Button buttonStyle={styles.returnButton} onPress={showReturnCalender}  title="Return" />
+        <Button 
+            buttonStyle={{
+             backgroundColor: pickUpButton,     
+             width: 100,
+             marginLeft: 20,}} 
+             onPress={showPickUpCalender}  
+             title="Pick-Up" 
+             />
+        <Button 
+            buttonStyle={{
+             backgroundColor: returnButton,     
+             width: 100,
+             marginLeft: 20,}} 
+             onPress={showReturnCalender}  
+             title="Return" />
     </View>
                 
     <View > 
@@ -61,15 +71,15 @@ const styles = StyleSheet.create({
     width: '100%',
     borderColor: 'black',
   },
-  pickUpbutton: {
+  pickUpbuttonStyle: {
     width: 100,
     marginLeft: 20,
-    backgroundColor: 'red'
+
   },
-  returnButton: {
+  returnButtonStyle: {
     width: 100,
     marginLeft: 20,
-    backgroundColor: 'red'
+
   }
 });
        
