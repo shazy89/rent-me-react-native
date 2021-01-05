@@ -43,8 +43,10 @@ return (
        fontFamily: "Cochin" 
     },
     datesView: {
+        flex: 1,
         margin: 20,
-      }
+  }
+
 
        
  });

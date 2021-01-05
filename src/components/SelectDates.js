@@ -10,10 +10,8 @@ const [pickUpDate, returnDate, showReturn,
        onChangePickUpDate, onChangeReturnDate ] = useSelectDate();
  return (
   <>
-    <View>
+    <View >
         <Button onPress={showPickUpCalender} title="Pick-Up" />
-    </View>
-    <View>
         <Button onPress={showReturnCalender} title="Return" />
     </View>
     <View style={styles.datePickerView}> 
@@ -45,26 +43,27 @@ const [pickUpDate, returnDate, showReturn,
   </>
 );
 };
+
       
-
-
-
-
 
 const styles = StyleSheet.create({
   datePickerView: {
-    flex: 1, 
+    alignItems: 'center',
     flexDirection: 'row',
-    alignItems: 'center'
+    justifyContent: "center",
   },
   datePicker: {
-    height: 100,
-    width:  200,
+    width:  120,
     borderColor: 'black',
     borderBottomColor: 'red'
     },
 
 })
+    
+
+
+
+
 
 
    
