@@ -20,6 +20,7 @@ return (
      </>
    );
  };
+           
 
             
  const styles = StyleSheet.create({
@@ -31,12 +32,13 @@ return (
         marginTop: 10,
         justifyContent: "center",
         alignItems: "center",
-        backgroundColor: '#d3d3d3',
-        borderWidth: 1
+        backgroundColor: '#ffa500',
+        borderWidth: 1,
      },
-     headingText: {
-        fontFamily: "Cochin" 
-     }
+    headingText: {
+       fontFamily: "Cochin" 
+    }
+       
  });
      
   
