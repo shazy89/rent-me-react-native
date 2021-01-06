@@ -25,10 +25,10 @@ console.log(d)
            <View  style={styles.datesView}>
               <SelectDates />
            </View>
-           <View>
+           <View style={styles.selectedDatesView}>
             { startDate ? <Text style={styles.selectedDates}>START</Text> : null}
             { endDate ? <Text style={styles.selectedDates}>END</Text> : null}
-           </View>
+           </View >
           <View> 
            {startDate && endDate ? (<Button
               title="Check Availability"
@@ -69,12 +69,22 @@ console.log(d)
       availabilityButton: {
        backgroundColor: '#00A800',
       },
+      selectedDatesView: {
+         alignItems: 'center',
+         flexDirection: 'row',
+         justifyContent: "center",
+      },
       selectedDates: {
          borderWidth: 1,
-         borderColor: 'red'
+         borderColor: 'black',
+         width: '40%',
+         margin: 10,
+         fontSize: 16,
+         textAlign: 'center'
       }
+   });
+         
 
-    });
        
            
     const mapStateToProps = carsReducer => {
