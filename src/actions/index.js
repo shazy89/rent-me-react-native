@@ -6,6 +6,7 @@ const addCars = (cars) => {
         peyload: cars
     };
   }; 
+  
  export const fetchCars =  () => {
      return async dispatch => {
       const response = await rentMeApi.get('cars');
