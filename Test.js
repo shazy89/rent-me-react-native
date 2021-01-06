@@ -50,7 +50,7 @@ const Test = ( { navigation } ) => {
         <Text>Hello Test Screen</Text>
         <Button title="HomeScreen" onPress={() => navigation.navigate('Home')} />
         <Button title="TrackListScreen" onPress={() => navigation.navigate('List')} />
-        <Button title="Shadow" onPress={() => navigation.navigate('Shadow')} />
+
       </View>
     );
   };

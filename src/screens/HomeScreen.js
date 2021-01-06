@@ -3,13 +3,16 @@ import { View, StyleSheet, FlatList, TouchableOpacity, ImageBackground } from 'r
 import { ListItem, Text, Avatar, Image, Button } from 'react-native-elements';
 import { connect } from 'react-redux';
 import SelectDates from '../components/SelectDates'
-
+import useDates from '../hooks/useDates';
 // import { fetchCars } from '../actions/index'
 
 
 const HomeScreen = ({ navigation, dates }) => {
-  
    const { startDate, endDate } = dates;
+   const [getFormattedDate] = useDates();
+
+  const pkpDate = startDate ? getFormattedDate(startDate) : null
+  const retDate = endDate ? getFormattedDate(endDate) : null
 
    return (
         <>
@@ -25,8 +28,8 @@ const HomeScreen = ({ navigation, dates }) => {
               <SelectDates />
            </View>
            <View style={styles.selectedDatesView}>
-            { startDate ? <Text style={styles.selectedDates}>START</Text> : null}
-            { endDate ? <Text style={styles.selectedDates}>END</Text> : null}
+            { startDate ? <Text style={styles.selectedDates}>{pkpDate}</Text> : null}
+            { endDate ? <Text style={styles.selectedDates}>{retDate}</Text> : null}
            </View >
           <View> 
            {startDate && endDate ? (<Button
