@@ -1,11 +1,14 @@
 import React, { useState } from 'react'
 import { View, Text, Button } from 'react-native';
 import DateTimePicker from '@react-native-community/datetimepicker';
-
+import useDates from './src/hooks/useDates'
 const Test = ( { navigation } ) => {
     const [date, setDate] = useState(new Date());
     const [mode, setMode] = useState('date');
     const [show, setShow] = useState(false);
+
+    const [pkpDate] = useDates(date);
+
 
     const onChange = (event, selectedDate) => {
         const currentDate = selectedDate || date;
@@ -50,9 +53,9 @@ const Test = ( { navigation } ) => {
         <Text>Hello Test Screen</Text>
         <Button title="HomeScreen" onPress={() => navigation.navigate('Home')} />
         <Button title="TrackListScreen" onPress={() => navigation.navigate('List')} />
-
       </View>
     );
   };
+
 
 export default Test;

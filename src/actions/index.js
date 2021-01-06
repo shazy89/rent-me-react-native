@@ -6,11 +6,10 @@ const addCars = (cars) => {
         peyload: cars
     };
   }; 
-  
+
  export const fetchCars =  () => {
      return async dispatch => {
       const response = await rentMeApi.get('cars');
-      console.log(response.data)
       try {
       dispatch(addCars(response.data))
     } catch (err) {
@@ -18,6 +17,7 @@ const addCars = (cars) => {
     };
   };
 };
+
       
 
         

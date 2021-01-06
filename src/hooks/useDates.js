@@ -12,8 +12,8 @@ export default (startDate, endDate) => {
    const pkpDate = startDate ? getFormattedDate(startDate) : null
    const retDate = endDate ? getFormattedDate(endDate) : null
 
-
-
-
-    return [ pkpDate, retDate ]
+   return [ pkpDate, retDate ];
 };
+
+
+

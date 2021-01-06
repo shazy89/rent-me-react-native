@@ -1,7 +1,28 @@
 import React, { useState } from 'react'
 import { View, Text, Button, StyleSheet } from 'react-native';
+// import { getSearchDates } from '../actions/dates';
+import { connect } from 'react-redux';
 
-const AvailableCarsScreen = () => {
+const AvailableCarsScreen = ({dates}) => {
+    const { startDate, endDate } = dates;
+
+   const getSearchDates = (stDate, endDate ) => {
+       let days = []
+       const daysInTime = endDate.getTime() - stDate.getTime();
+       console.log(daysInTime)
+       const totalDays = daysInTime / (1000 * 3600 * 24);
+       for (let i = 0; i < Math.ceil(totalDays); i++){
+         let nextDay = new Date(stDate)
+         nextDay.setDate(nextDay.getDate() + i)
+   
+           days = [...days, nextDay]
+       }
+   
+       return days
+    } 
+
+     const d = getSearchDates(startDate, endDate)
+     console.log(d)
     return (
         <>
           <Text> Hello From the AvailableCarsScreen Screen</Text>
@@ -11,4 +32,10 @@ const AvailableCarsScreen = () => {
 
 const styles = StyleSheet.create({});
 
-export default AvailableCarsScreen;
+const mapStateToProps = carsReducer => {
+    return {
+       dates: carsReducer.dates
+    }
+ };
+
+export default connect(mapStateToProps)(AvailableCarsScreen);

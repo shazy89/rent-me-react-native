@@ -3,7 +3,7 @@
   import { ListItem, Text, Avatar } from 'react-native-elements'
   import { connect } from 'react-redux';
   import { fetchCars } from '../actions/index'
-  
+  import useDates from '../hooks/useDates'
   
   const TestScreen = ({ navigation, fetchCars, cars }) => {
   
@@ -12,6 +12,7 @@
           fetchCars()
       };
   }, []);
+
   
   const renderItem = ( item ) => (
      
