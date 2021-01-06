@@ -2,35 +2,37 @@ import React, { useEffect } from 'react'
 import { View, StyleSheet, FlatList, TouchableOpacity, ImageBackground } from 'react-native';
 import { ListItem, Text, Avatar, Image, Button } from 'react-native-elements';
 import SelectDates from '../components/SelectDates'
- // import { connect } from 'react-redux';
+import { connect } from 'react-redux';
 // import { fetchCars } from '../actions/index'
 
 
-const HomeScreen = ({ navigation }) => {
-
-return (
-     <>
-       <ImageBackground
-          source={{ uri: 'https://res.cloudinary.com/dytheecsk/image/upload/v1609861676/img2_scqpqh.jpg' }}
-          style={styles.backgroundImage}
-          resizeMode='cover'
-        />
-        <View style={styles.heading}>
-           <Text h2 style={styles.headingText}> Reserve A Vehicle</Text>
-        </View>
-        <View  style={styles.datesView}>
-           <SelectDates />
-        </View>
-       <View> 
-        <Button
-           title="Check Availability"
-           buttonStyle={styles.availabilityButton}
-        />
-      </View>
-     
-    </>
-  );
-};
+const HomeScreen = ({ navigation, dates }) => {
+  
+   const { startDate, endDate } = dates;
+      
+   return (
+        <>
+          <ImageBackground
+             source={{ uri: 'https://res.cloudinary.com/dytheecsk/image/upload/v1609861676/img2_scqpqh.jpg' }}
+             style={styles.backgroundImage}
+             resizeMode='cover'
+           />
+           <View style={styles.heading}>
+              <Text h2 style={styles.headingText}> Reserve A Vehicle</Text>
+           </View>
+           <View  style={styles.datesView}>
+              <SelectDates />
+           </View>
+          <View> 
+           <Button
+              title="Check Availability"
+              buttonStyle={styles.availabilityButton}
+           />
+         </View>
+        
+       </>
+     );
+   };
            
  const styles = StyleSheet.create({
      backgroundImage: {
@@ -50,14 +52,20 @@ return (
     datesView: {
        flex: 1,
        margin: 20,
- 
-  },
-  availabilityButton: {
-   backgroundColor: '#00A800',
-   borderWidth: 1,
-       
-  }    
-});
+      },
+      availabilityButton: {
+       backgroundColor: '#00A800',
+       borderWidth: 1,
+           
+      }    
+    });
+    const mapStateToProps = carsReducer => {
+       return {
+          dates: carsReducer.dates
+       }
+    };
+      
+export default connect(mapStateToProps)(HomeScreen);
 
 
        
@@ -69,7 +77,6 @@ return (
 
 
      
-  export default HomeScreen;
 
 
 

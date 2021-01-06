@@ -4,13 +4,13 @@ import { Button } from 'react-native-elements';
 import DateTimePicker from '@react-native-community/datetimepicker';
 import useSelectDate from '../hooks/useSelectDate';
 import { connect } from 'react-redux';
-import { addPickUpDate } from '../actions/dates'
+import { addPickUpDate, addReturnDate } from '../actions/dates'
 
-const SelectDates = ({ addPickUpDate }) => {
+const SelectDates = ({ addPickUpDate, addReturnDate }) => {
 
 const [pickUpDate, returnDate, showReturn, 
        showPickUp, showReturnCalender, showPickUpCalender, 
-       onChangePickUpDate, onChangeReturnDate, pickUpButton, returnButton ] = useSelectDate(addPickUpDate);
+       onChangePickUpDate, onChangeReturnDate, pickUpButton, returnButton ] = useSelectDate(addPickUpDate, addReturnDate);
 
 
  return (
@@ -75,7 +75,7 @@ const styles = StyleSheet.create({
   },
 });
        
-export default connect(null, { addPickUpDate })(SelectDates);
+export default connect(null, { addPickUpDate, addReturnDate })(SelectDates);
 
 
    
