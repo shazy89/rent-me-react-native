@@ -1,17 +1,16 @@
 import React, { useEffect } from 'react'
 import { View, StyleSheet, FlatList, TouchableOpacity, ImageBackground } from 'react-native';
 import { ListItem, Text, Avatar, Image, Button } from 'react-native-elements';
-import SelectDates from '../components/SelectDates'
 import { connect } from 'react-redux';
+import SelectDates from '../components/SelectDates'
+
 // import { fetchCars } from '../actions/index'
 
 
 const HomeScreen = ({ navigation, dates }) => {
   
    const { startDate, endDate } = dates;
-console.log(new Date(startDate))
-let d = startDate.getDate().toString().padStart(2, '0');
-console.log(d)
+
    return (
         <>
           <ImageBackground
@@ -44,56 +43,64 @@ console.log(d)
      );
    };
               
+   const styles = StyleSheet.create({
+       backgroundImage: {
+          width: '100%', 
+          height: 300
+       },
+       heading: {
+          marginTop: 10,
+          justifyContent: "center",
+          alignItems: "center",
+          backgroundColor: '#ffa500',
+          borderWidth: 1,
+       },
+      headingText: {
+         fontFamily: "Cochin" 
+      },
+      datesView: {
+         flex: 1,
+         margin: 20,
+        },
+        availabilityButton: {
+         backgroundColor: '#00A800',
+        },
+        selectedDatesView: {
+           alignItems: 'center',
+           flexDirection: 'row',
+           justifyContent: "center",
+        },
+        selectedDates: {
+           width: '40%',
+           margin: 10,
+           fontSize: 16,
+           textAlign: 'center',
+           backgroundColor: '#2E9298',
+           borderRadius: 10,
+           padding: 5,
+           shadowColor: '#000000',
+           shadowOffset: {
+             width: 0,
+             height: 3
+           },
+           shadowRadius: 5,
+           shadowOpacity: 1.0
+        }
+     });
+           
+     const mapStateToProps = carsReducer => {
+        return {
+           dates: carsReducer.dates
+        }
+     };
+       
+  export default connect(mapStateToProps)(HomeScreen);
               
         
            
- const styles = StyleSheet.create({
-     backgroundImage: {
-        width: '100%', 
-        height: 300
-     },
-     heading: {
-        marginTop: 10,
-        justifyContent: "center",
-        alignItems: "center",
-        backgroundColor: '#ffa500',
-        borderWidth: 1,
-     },
-    headingText: {
-       fontFamily: "Cochin" 
-    },
-    datesView: {
-       flex: 1,
-       margin: 20,
-      },
-      availabilityButton: {
-       backgroundColor: '#00A800',
-      },
-      selectedDatesView: {
-         alignItems: 'center',
-         flexDirection: 'row',
-         justifyContent: "center",
-      },
-      selectedDates: {
-         borderWidth: 1,
-         borderColor: 'black',
-         width: '40%',
-         margin: 10,
-         fontSize: 16,
-         textAlign: 'center'
-      }
-   });
-         
 
        
            
-    const mapStateToProps = carsReducer => {
-       return {
-          dates: carsReducer.dates
-       }
-    };
-      
-export default connect(mapStateToProps)(HomeScreen);
 
 
        

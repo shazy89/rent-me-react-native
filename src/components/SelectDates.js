@@ -60,22 +60,21 @@ const [pickUpDate, returnDate, showReturn,
         </>
        );
       };
-
+ const styles = StyleSheet.create({
+   datePickerView: {
+     alignItems: 'center',
+     flexDirection: 'row',
+     justifyContent: "center",
+   },
+   datePicker: {
+     width: '100%',
+     borderColor: 'black',
+   },
+ });
+        
+   export default connect(null, { addPickUpDate, addReturnDate })(SelectDates);
                 
          
-const styles = StyleSheet.create({
-  datePickerView: {
-    alignItems: 'center',
-    flexDirection: 'row',
-    justifyContent: "center",
-  },
-  datePicker: {
-    width: '100%',
-    borderColor: 'black',
-  },
-});
-       
-export default connect(null, { addPickUpDate, addReturnDate })(SelectDates);
 
 
    

@@ -10,7 +10,8 @@ import rootReducer from './src/reducers/index';
 import thunk from 'redux-thunk';
 import BottomNavigator from './src/BottomNavigator';
 import TrackListScreen from './TrackListScreen';
-import HomeScreen from './src/screens/HomeScreen';
+
+
 
 const Stack = createStackNavigator();
 
@@ -26,6 +27,7 @@ function App() {
          <Stack.Screen name="BottomNavigator" component={BottomNavigator} options={{ headerShown: false }} />
          <Stack.Screen name="Test" component={Test} />
          <Stack.Screen name="List" component={TrackListScreen} />
+
        </Stack.Navigator>
      </NavigationContainer>
     </Provider>   
