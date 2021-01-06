@@ -9,7 +9,7 @@ import { connect } from 'react-redux';
 const HomeScreen = ({ navigation, dates }) => {
   
    const { startDate, endDate } = dates;
-      
+
    return (
         <>
           <ImageBackground
@@ -24,15 +24,22 @@ const HomeScreen = ({ navigation, dates }) => {
               <SelectDates />
            </View>
           <View> 
-           <Button
+           {startDate && endDate ? (<Button
               title="Check Availability"
               buttonStyle={styles.availabilityButton}
-           />
+              />) :
+              (<Button
+              disabled
+              title="Check Availability"
+              buttonStyle={styles.availabilityButton}
+              />)}
          </View>
-        
        </>
      );
    };
+              
+              
+        
            
  const styles = StyleSheet.create({
      backgroundImage: {
@@ -55,10 +62,11 @@ const HomeScreen = ({ navigation, dates }) => {
       },
       availabilityButton: {
        backgroundColor: '#00A800',
-       borderWidth: 1,
-           
-      }    
+      },
+
     });
+       
+           
     const mapStateToProps = carsReducer => {
        return {
           dates: carsReducer.dates
