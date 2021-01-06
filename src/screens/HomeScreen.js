@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React from 'react'
 import { View, StyleSheet, FlatList, TouchableOpacity, ImageBackground } from 'react-native';
 import { ListItem, Text, Avatar, Image, Button } from 'react-native-elements';
 import { connect } from 'react-redux';
@@ -35,6 +35,7 @@ const HomeScreen = ({ navigation, dates }) => {
            {startDate && endDate ? (<Button
               title="Check Availability"
               buttonStyle={styles.availabilityButton}
+              onPress={() => navigation.navigate('Availability')}
               />) :
               (<Button
               disabled
