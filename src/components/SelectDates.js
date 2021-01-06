@@ -1,15 +1,17 @@
-import React, {useState} from 'react';
+import React from 'react';
 import {View, StyleSheet} from 'react-native';
 import { Button } from 'react-native-elements';
 import DateTimePicker from '@react-native-community/datetimepicker';
-import DatePicker from './DatePicker';
 import useSelectDate from '../hooks/useSelectDate';
-import { Ionicons } from '@expo/vector-icons';
+import { connect } from 'react-redux';
+import { addPickUpDate } from '../actions/dates'
 
-const SelectDates = () => {
+const SelectDates = ({ addPickUpDate }) => {
+
 const [pickUpDate, returnDate, showReturn, 
        showPickUp, showReturnCalender, showPickUpCalender, 
-       onChangePickUpDate, onChangeReturnDate, pickUpButton, returnButton ] = useSelectDate();
+       onChangePickUpDate, onChangeReturnDate, pickUpButton, returnButton ] = useSelectDate(addPickUpDate);
+
 
  return (
   <>
@@ -30,7 +32,6 @@ const [pickUpDate, returnDate, showReturn,
              onPress={showReturnCalender}  
              title="Return" />
     </View>
-                
     <View > 
        {showPickUp && (
          <DateTimePicker
@@ -60,6 +61,7 @@ const [pickUpDate, returnDate, showReturn,
   </>
  );
 };
+                
          
 const styles = StyleSheet.create({
   datePickerView: {
@@ -71,18 +73,9 @@ const styles = StyleSheet.create({
     width: '100%',
     borderColor: 'black',
   },
-  pickUpbuttonStyle: {
-    width: 100,
-    marginLeft: 20,
-
-  },
-  returnButtonStyle: {
-    width: 100,
-    marginLeft: 20,
-
-  }
 });
        
+export default connect(null, { addPickUpDate })(SelectDates);
 
 
    
@@ -104,5 +97,3 @@ const styles = StyleSheet.create({
 
 
 
-
-export default SelectDates
