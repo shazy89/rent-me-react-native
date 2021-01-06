@@ -1,6 +1,7 @@
 import { useState } from 'react';
 
 export default (addPickUpDate, addReturnDate) => {
+  
     const [pickUpDate, setPickUpDate] = useState(new Date());
     const [returnDate, setReturnDate] = useState(pickUpDate)
     const [showReturn, setShowReturn] = useState(false);

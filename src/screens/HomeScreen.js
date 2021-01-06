@@ -9,7 +9,9 @@ import { connect } from 'react-redux';
 const HomeScreen = ({ navigation, dates }) => {
   
    const { startDate, endDate } = dates;
-
+console.log(new Date(startDate))
+let d = startDate.getDate().toString().padStart(2, '0');
+console.log(d)
    return (
         <>
           <ImageBackground
@@ -22,6 +24,10 @@ const HomeScreen = ({ navigation, dates }) => {
            </View>
            <View  style={styles.datesView}>
               <SelectDates />
+           </View>
+           <View>
+            { startDate ? <Text style={styles.selectedDates}>START</Text> : null}
+            { endDate ? <Text style={styles.selectedDates}>END</Text> : null}
            </View>
           <View> 
            {startDate && endDate ? (<Button
@@ -63,6 +69,10 @@ const HomeScreen = ({ navigation, dates }) => {
       availabilityButton: {
        backgroundColor: '#00A800',
       },
+      selectedDates: {
+         borderWidth: 1,
+         borderColor: 'red'
+      }
 
     });
        
