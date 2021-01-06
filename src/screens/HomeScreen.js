@@ -9,10 +9,7 @@ import useDates from '../hooks/useDates';
 
 const HomeScreen = ({ navigation, dates }) => {
    const { startDate, endDate } = dates;
-   const [getFormattedDate] = useDates();
-
-  const pkpDate = startDate ? getFormattedDate(startDate) : null
-  const retDate = endDate ? getFormattedDate(endDate) : null
+   const [ pkpDate, retDate ] = useDates(startDate, endDate);
 
    return (
         <>
@@ -46,6 +43,7 @@ const HomeScreen = ({ navigation, dates }) => {
        </>
      );
    };
+
               
    const styles = StyleSheet.create({
        backgroundImage: {
