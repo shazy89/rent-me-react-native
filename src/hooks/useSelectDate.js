@@ -1,14 +1,14 @@
 import { useState } from 'react';
 
 export default (addPickUpDate, addReturnDate) => {
-  
+
     const [pickUpDate, setPickUpDate] = useState(new Date());
     const [returnDate, setReturnDate] = useState(pickUpDate)
     const [showReturn, setShowReturn] = useState(false);
     const [showPickUp, setShowPickUp] = useState(false);
     const [pickUpButton, setPickUpButton] = useState('#ffa500');
     const [returnButton, setReturnButton] = useState('#ffa500');
-    
+
     const onChangePickUpDate = (event, selectedDate) => {
         const currentDate = selectedDate || pickUpDate;
         setShowPickUp(Platform.OS === 'ios');
@@ -42,3 +42,5 @@ export default (addPickUpDate, addReturnDate) => {
 
 
 };
+    
+    

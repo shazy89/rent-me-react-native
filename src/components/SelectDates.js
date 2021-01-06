@@ -1,17 +1,23 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import {View, StyleSheet} from 'react-native';
 import { Button } from 'react-native-elements';
 import DateTimePicker from '@react-native-community/datetimepicker';
 import useSelectDate from '../hooks/useSelectDate';
 import { connect } from 'react-redux';
 import { addPickUpDate, addReturnDate } from '../actions/dates'
+import { fetchCars } from '../actions/index'
 
-const SelectDates = ({ addPickUpDate, addReturnDate }) => {
+const SelectDates = ({ addPickUpDate, addReturnDate, fetchCars, cars }) => {
 
 const [pickUpDate, returnDate, showReturn, 
        showPickUp, showReturnCalender, showPickUpCalender, 
        onChangePickUpDate, onChangeReturnDate, pickUpButton, returnButton ] = useSelectDate(addPickUpDate, addReturnDate);
 
+       useEffect(() => {
+        if(cars.length === 0){
+        fetchCars()
+       };
+}, []);
        return (
         <>
           <View style={styles.datePickerView}>
@@ -71,8 +77,13 @@ const [pickUpDate, returnDate, showReturn,
      borderColor: 'black',
    },
  });
+ const mapStateToProps = carsReducer => {
+  return {
+   cars: carsReducer.cars.cars
+  }
+};
         
-   export default connect(null, { addPickUpDate, addReturnDate })(SelectDates);
+   export default connect(mapStateToProps, { addPickUpDate, addReturnDate, fetchCars })(SelectDates);
                 
          
 
