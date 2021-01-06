@@ -35,6 +35,6 @@ export default () => {
 
     return [pickUpDate, returnDate, showReturn, 
             showPickUp, showReturnCalender, showPickUpCalender, 
-            onChangePickUpDate, onChangeReturnDate, pickUpButton, returnButton, ];
+            onChangePickUpDate, onChangeReturnDate, pickUpButton, returnButton];
 
 };

@@ -19,13 +19,4 @@ const addCars = (cars) => {
 };
       
 
- //
- //  export const fetchCars = () => {
- //      return (dispatch) => {
- //          fetch('http://localhost:3001/cars')
- //              .then( resp => resp.json() )
- //              .then( cars => {  
- //                  dispatch(addCars(cars))})
- //      }
- //  }
         
