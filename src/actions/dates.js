@@ -1,15 +1,15 @@
-export const addStartDate = (startDate, history) => {
-
+export const addPickUpDate = (startDate) => {
     return (dispatch) => {
-        dispatch({type: 'ADD_START_DATE', startDate})
-        history.push('/carlist')
-    }
-}
+        dispatch({type: 'ADD_START_DATE', peyload: startDate})
+    };
+};
 
-export const addEndDate = (endDate, history) => {
-
+export const addReturnDate = (endDate) => {
     return (dispatch) => {
-        dispatch({type: 'ADD_END_DATE', endDate})
-        history.push('/carlist')
-    }
-}
+        dispatch({type: 'ADD_END_DATE', peyload: endDate})
+    };
+};
+        
+
+
+        

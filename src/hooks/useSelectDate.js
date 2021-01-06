@@ -1,4 +1,5 @@
-import { useState} from 'react';
+import { useState } from 'react';
+import { addPickUpDate, addReturnDate } from '../actions/dates'
 
 
 export default () => {
@@ -14,11 +15,13 @@ export default () => {
         const currentDate = selectedDate || pickUpDate;
         setShowPickUp(Platform.OS === 'ios');
         setPickUpDate(currentDate);
+        addPickUpDate(currentDate);
       };
     const onChangeReturnDate = (event, selectedDate) => {
         const currentDate = selectedDate || returnDate;
         setShowReturn(Platform.OS === 'ios');
         setReturnDate(currentDate);
+        addReturnDate(currentDate);
       };
       const showReturnCalender = () => {
         setShowReturn(true)
