@@ -9,17 +9,17 @@ const AvailableCarsScreen = ({dates}) => {
    const getSearchDates = (stDate, endDate ) => {
        let days = []
        const daysInTime = endDate.getTime() - stDate.getTime();
-       console.log(daysInTime)
+    
        const totalDays = daysInTime / (1000 * 3600 * 24);
        for (let i = 0; i < Math.ceil(totalDays); i++){
-         let nextDay = new Date(stDate)
+         let nextDay = stDate
          nextDay.setDate(nextDay.getDate() + i)
-   
-           days = [...days, nextDay]
-       }
-   
-       return days
-    } 
+         days = [...days, nextDay]
+        }
+    
+        return days
+     } 
+           
 
      const d = getSearchDates(startDate, endDate)
      console.log(d)
