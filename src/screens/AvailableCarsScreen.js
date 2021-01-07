@@ -20,36 +20,40 @@ const AvailableCarsScreen = ({dates, cars}) => {
         return days
      } 
 
+     const compare = (arr1, arr2) => {
+         
+         const finalArray = []
+         arr1.forEach(e1 => arr2.forEach(e2 =>
+           {if (e1 === e2){
+             finalArray.push(e1)
+           } 
+         } 
+      ) )
+           return finalArray
+   }
 
-//console.log(date === dt2)
-// console.log(date.valueOf() == dt2.valueOf())
+   const d = getSearchDates(startDate, endDate)
+  let bookings = cars.map(car => {
+    return  car.bookings.filter(booking => {    
+     return compare(getSearchDates(new Date(booking.startDate), new Date(booking.endDate)), d).length === 0
+    })     
+ });  
+ const carList = cars.filter(car => bookings.flat().map(bkId => parseInt(bkId.car_id)).includes(car.id))
 
-const d = getSearchDates(startDate, endDate)
-//console.log(d.includes('2/8/2021'))
-//console.log(d)
-const lincoln = cars.find(car => car.make === 'Lincoln').bookings.filter(booking => {
-    let dates = getSearchDates(new Date(booking.startDate), new Date(booking.endDate))
-   console.log(dates)
-      // return d.includes(dt1)
-   })
+   
 
-console.log(lincoln)
+// console.log(bookings.flat().include(parseInt(car.id)))
 
-
-const available = cars.map(car => car.bookings.filter(booking => {
- //   console.log(booking.startDate)
-    let date = new Date('2021-01-10T05:00:00.000Z').getTime()
-  //  console.log(date)
-    let dt1 = new Date(booking.startDate).getTime()
-  //  console.log(d)
-  //  console.log(dt1)
-    return !d.includes(dt1)
-   })
- );
-//console.log(available)
-
-  // e1.getTime() === e2.getTime()
-
+  
+//    const lincoln = cars.find(car => car.make === 'Lincoln').bookings.map(booking => {
+//        return getSearchDates(new Date(booking.startDate), new Date(booking.endDate))
+//    }).flat().filter(e => d.includes(e))
+//    
+//    const available = cars.filter(car => car.bookings.map(booking => {
+//        return getSearchDates(new Date(booking.startDate), new Date(booking.endDate))}
+//        ).flat().filter(e => d.includes(e))
+//     )
+//    console.log(available)
     
     return (
         <>
