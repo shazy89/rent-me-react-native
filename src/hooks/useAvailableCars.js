@@ -1,5 +1,5 @@
 
-export default (startDate, endDate) => {
+export default (startDate, endDate, cars) => {
 
     const getSearchDates = (stDate, endDate ) => {
         let days = [];
@@ -12,25 +12,24 @@ export default (startDate, endDate) => {
       };
       return days
    };
-  
-    const compare = (arr1, arr2) => {
-        const finalArray = [];
-        arr1.forEach(e1 => arr2.forEach(e2 =>
-          { if (e1 === e2){
-            finalArray.push(e1)
-          }; 
-        } 
-     ));
-          return finalArray
-    };
-    const chosenDates  = getSearchDates(startDate, endDate)
-    let bookings = cars.map(car => {
-     return  car.bookings.filter(booking => {    
-      return compare(getSearchDates(new Date(booking.startDate), new Date(booking.endDate)), chosenDates).length !== 0
-     })     
-  }); 
-    const carList = cars.filter(car => !bookings.flat().map(bkId => parseInt(bkId.car_id)).includes(car.id)) 
+   
+   const compare = (arr1, arr2) => {
+       const finalArray = [];
+       arr1.forEach(e1 => arr2.forEach(e2 =>
+         { if (e1 === e2){
+           finalArray.push(e1)
+         };
+        }));
+    return finalArray;
+  };
 
-    return [carList]
+    const bookings = cars.map(car => {
+     return  car.bookings.filter(booking => {    
+      return compare(getSearchDates(new Date(booking.startDate), new Date(booking.endDate)), getSearchDates(startDate, endDate)).length !== 0
+     });     
+  }); 
+    const carList = cars.filter(car => !bookings.flat().map(bkId => parseInt(bkId.car_id)).includes(car.id)); 
+
+    return [carList];
 
 };
