@@ -3,8 +3,7 @@
   import { ListItem, Text, Avatar } from 'react-native-elements'
   import { connect } from 'react-redux';
   import { fetchCars } from '../actions/index'
-  import useDates from '../hooks/useDates'
-  
+
   const TestScreen = ({ navigation, fetchCars, cars }) => {
   
       useEffect(() => {
@@ -13,7 +12,6 @@
       };
   }, []);
 
-  
   const renderItem = ( item ) => (
      
       <ListItem bottomDivider>
@@ -55,15 +53,17 @@
      },
 });
   
+const mapStateToProps = carsReducer => {
+    return {
+     cars: carsReducer.cars.cars
+    }
+ };
+  
+ export default connect(mapStateToProps, { fetchCars })(TestScreen);
   
   
-   const mapStateToProps = carsReducer => {
-       return {
-        cars: carsReducer.cars.cars
-       }
-    };
+  
        
-    export default connect(mapStateToProps, { fetchCars })(TestScreen);
 
 
          
