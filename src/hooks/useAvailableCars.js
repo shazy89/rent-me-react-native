@@ -28,8 +28,9 @@ export default (startDate, endDate, cars) => {
       return compare(getSearchDates(new Date(booking.startDate), new Date(booking.endDate)), getSearchDates(startDate, endDate)).length !== 0
      });     
   }); 
+  
     const carList = cars.filter(car => !bookings.flat().map(bkId => parseInt(bkId.car_id)).includes(car.id)); 
 
     return [carList];
-
 };
+
