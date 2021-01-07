@@ -1,11 +1,41 @@
 import React from 'react';
 import { View, Text, StyleSheet, FlatList, TouchableOpacity } from 'react-native';
-import useDates from '../hooks/useDates';
+import AvailableCarsDetail from './AvailableCarsDetail';
 
-const AvailableCarsList = () => {
+const AvailableCarsList = ({ navigation, vehicles, title }) => {
 
 
-  return <></>   
+  return (
+    <View style={styles.container}>
+    <Text style={styles.title}> {title} </Text>
+    <FlatList
+        showsHorizontalScrollIndicator={false}
+        horizontal
+        data={vehicles}
+        keyExtractor={result => result.id}
+        renderItem={({ item }) => {
+          return (
+            <TouchableOpacity
+              onPress={() => console.log('Pressed')} >
+              <AvailableCarsDetail result={item} />
+            </TouchableOpacity>
+          );
+        }}
+    />
+  </View>
+  )   
 };
+
+const styles = StyleSheet.create({
+  title: {
+    fontSize: 18,
+    fontWeight: 'bold',
+    marginLeft: 15,
+    marginBottom: 5
+  },
+  container: {
+   marginBottom: 10
+  },
+});
 
 export default AvailableCarsList;

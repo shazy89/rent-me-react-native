@@ -1,19 +1,24 @@
-import React, { useState } from 'react'
+import React from 'react';
 import { View, Text, Button, StyleSheet, ScrollView } from 'react-native';
-import useAvailableCars from '../hooks/useAvailableCars'
+import useAvailableCars from '../hooks/useAvailableCars';
 import { connect } from 'react-redux';
+import AvailableCarsList from '../components/AvailableCarsList';
 
-const AvailableCarsScreen = ({dates, cars}) => {
+const AvailableCarsScreen = ({dates, cars, navigation}) => {
     const { startDate, endDate } = dates;
     const [carList] = useAvailableCars(startDate, endDate, cars);
-
-    const filterVehicleType = type => {
-        return carList.filtter(car => car.vehicleType === type)
-    };
-
+     
+      const filterVehicleType = type => { 
+          return carList.filter(car => car.vehicleType === type)
+        };
+         
+        console.log(filterVehicleType('Compact Car'))
+    //    console.log(navigation)
     return (
         <>
-          <Text> Hello From the AvailableCarsScreen Screen</Text>
+           <ScrollView>
+            <AvailableCarsList vehicles={filterVehicleType('Compact Car')} title='Compact Cars' />
+          </ScrollView>
         </>
     );
 };
