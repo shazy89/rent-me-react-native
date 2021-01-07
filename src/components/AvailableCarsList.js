@@ -3,7 +3,10 @@ import { View, Text, StyleSheet, FlatList, TouchableOpacity } from 'react-native
 import AvailableCarsDetail from './AvailableCarsDetail';
 
 const AvailableCarsList = ({ navigation, vehicles, title }) => {
-
+  
+  if (!vehicles.length) {
+    return null;
+  }
 
   return (
     <View style={styles.container}>

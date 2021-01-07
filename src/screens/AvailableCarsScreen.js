@@ -11,13 +11,13 @@ const AvailableCarsScreen = ({dates, cars, navigation}) => {
       const filterVehicleType = type => { 
           return carList.filter(car => car.vehicleType === type)
         };
-
+   // console.log(carList)   
     return (
         <>
            <ScrollView>
             <AvailableCarsList vehicles={filterVehicleType('Compact Car')} title='Compact Cars' />
-            <AvailableCarsList vehicles={filterVehicleType('Suv')} title='Compact Cars' />
-            <AvailableCarsList vehicles={filterVehicleType('Sports Car')} title='Compact Cars' />
+            <AvailableCarsList vehicles={filterVehicleType('Suv')} title='Suv' />
+            <AvailableCarsList vehicles={filterVehicleType('Luxury Car')} title='Sports Car' />
           </ScrollView>
         </>
     );

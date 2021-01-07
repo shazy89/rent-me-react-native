@@ -5,20 +5,19 @@ import { Text, StyleSheet, View, Image } from "react-native";
 
 const AvailableCarsDetail = ({result}) => {
 
-      
+  //   console.log(!result) 
    return (
        <View style={styles.container}> 
              <Image style={styles.img} source={{uri: result.img}} />
              <Text style={styles.name}>{result.make}</Text>
-  
        </View>
    );
 };
+  
 
 const styles = StyleSheet.create({
     container: {
         marginLeft: 15,
-    
     },
     img: {
         width: 250,
@@ -33,4 +32,5 @@ const styles = StyleSheet.create({
 })
 
 export default AvailableCarsDetail;
+    
       
