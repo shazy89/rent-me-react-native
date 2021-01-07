@@ -11,7 +11,7 @@ import thunk from 'redux-thunk';
 import BottomNavigator from './src/BottomNavigator';
 import TrackListScreen from './TrackListScreen';
 import AvailableCarsScreen from './src/screens/AvailableCarsScreen'
-
+import CarDetailScreen from './src/screens/CarDetailScreen'
 
 const Stack = createStackNavigator();
 
@@ -32,6 +32,7 @@ function App() {
                      headerStyle: {
                      backgroundColor: '#ffa500',
         }, }} />
+                 <Stack.Screen name="Detail" component={CarDetailScreen} />
 
        </Stack.Navigator>
      </NavigationContainer>
