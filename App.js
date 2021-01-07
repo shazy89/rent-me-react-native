@@ -27,7 +27,11 @@ function App() {
          <Stack.Screen name="BottomNavigator" component={BottomNavigator} options={{ headerShown: false }} />
          <Stack.Screen name="Test" component={Test} />
          <Stack.Screen name="List" component={TrackListScreen} />
-         <Stack.Screen name="Availability" component={AvailableCarsScreen} options={{ title: 'Available Vehicles' }} />
+         <Stack.Screen name="Availability" component={AvailableCarsScreen} 
+         options={{ title: 'Available Vehicles', 
+                     headerStyle: {
+                     backgroundColor: '#ffa500',
+        }, }} />
 
        </Stack.Navigator>
      </NavigationContainer>

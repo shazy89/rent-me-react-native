@@ -3,6 +3,7 @@ import { View, Text, Button, StyleSheet, ScrollView } from 'react-native';
 import useAvailableCars from '../hooks/useAvailableCars';
 import { connect } from 'react-redux';
 import AvailableCarsList from '../components/AvailableCarsList';
+import Spacer from '../components/Spacer';
 
 const AvailableCarsScreen = ({dates, cars, navigation}) => {
     const { startDate, endDate } = dates;
@@ -22,6 +23,7 @@ const AvailableCarsScreen = ({dates, cars, navigation}) => {
         </>
     );
 };
+
 
 const styles = StyleSheet.create({});
 
