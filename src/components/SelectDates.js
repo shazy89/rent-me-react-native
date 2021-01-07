@@ -17,7 +17,8 @@ const [pickUpDate, returnDate, showReturn,
         if(cars.length === 0){
         fetchCars()
        };
-}, []);
+     }, []);
+     
        return (
         <>
           <View style={styles.datePickerView}>

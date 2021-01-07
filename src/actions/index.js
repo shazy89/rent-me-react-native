@@ -9,8 +9,8 @@ const addCars = (cars) => {
 
  export const fetchCars =  () => {
      return async dispatch => {
+     try {
       const response = await rentMeApi.get('cars');
-      try {
       dispatch(addCars(response.data))
     } catch (err) {
         console.log(err)

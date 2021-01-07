@@ -1,5 +1,5 @@
 export default (state={
-    startDate: '',
+    startDate: new Date(),
     endDate: ''
     }, action) => {
   

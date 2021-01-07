@@ -11,7 +11,6 @@ console.log(result)
             <Text style={styles.textContainer}>
              <Text style={styles.titleText}>{result.make} 
                {"\n"}
-     
              </Text>
              <Text style={styles.titleText}> {result.model}
                {"\n"}
@@ -24,11 +23,12 @@ console.log(result)
        </View>
    );
 };
+     
 
 const styles = StyleSheet.create({
     container: {
         marginLeft: 15,
-        borderWidth: 1,
+        
         borderRadius: 4,
         borderBottomColor: 'black',
         width: 340,
@@ -49,7 +49,8 @@ const styles = StyleSheet.create({
           marginBottom: 5
         },
         textContainer: {
-          fontFamily: "Cochin"
+          fontFamily: "Cochin",
+          justifyContent: 'center'
         },
         titleText: {
           fontSize: 16,
@@ -58,6 +59,7 @@ const styles = StyleSheet.create({
         priceText: {
           fontWeight: 'bold',
           fontSize: 20,
+          alignSelf: 'stretch'
         }
   })
      
