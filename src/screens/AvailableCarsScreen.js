@@ -16,9 +16,15 @@ const AvailableCarsScreen = ({dates, cars, navigation}) => {
     return (
         <>
            <ScrollView>
-            <AvailableCarsList vehicles={filterVehicleType('Compact Car')} title='Compact Cars' />
-            <AvailableCarsList vehicles={filterVehicleType('Suv')} title='Suv' />
-            <AvailableCarsList vehicles={filterVehicleType('Luxury Car')} title='Sports Car' />
+             <Spacer>  
+                <AvailableCarsList vehicles={filterVehicleType('Compact Car')} title='Compact Cars' />
+             </Spacer>
+             <Spacer>
+               <AvailableCarsList vehicles={filterVehicleType('Suv')} title='Suv' />
+             </Spacer>
+             <Spacer>
+                <AvailableCarsList vehicles={filterVehicleType('Luxury Car')} title='Sports Car' />
+             </Spacer>  
           </ScrollView>
         </>
     );
