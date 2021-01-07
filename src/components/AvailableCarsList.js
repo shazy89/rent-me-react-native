@@ -3,7 +3,7 @@ import { View, Text, StyleSheet, FlatList, TouchableOpacity } from 'react-native
 import AvailableCarsDetail from './AvailableCarsDetail';
 
 const AvailableCarsList = ({ navigation, vehicles, title }) => {
-  
+
   if (!vehicles.length) {
     return null;
   }
@@ -15,7 +15,7 @@ const AvailableCarsList = ({ navigation, vehicles, title }) => {
         showsHorizontalScrollIndicator={false}
         horizontal
         data={vehicles}
-        keyExtractor={result => result.id}
+        keyExtractor={item => item.id.toString()}
         renderItem={({ item }) => {
           return (
             <TouchableOpacity

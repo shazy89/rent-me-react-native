@@ -5,7 +5,6 @@ import { Text, StyleSheet, View, Image } from "react-native";
 
 const AvailableCarsDetail = ({result}) => {
 
-  //   console.log(!result) 
    return (
        <View style={styles.container}> 
              <Image style={styles.img} source={{uri: result.img}} />
