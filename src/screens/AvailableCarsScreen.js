@@ -17,13 +17,13 @@ const AvailableCarsScreen = ({dates, cars, navigation}) => {
         <>
            <ScrollView>
              <Spacer>  
-                <AvailableCarsList vehicles={filterVehicleType('Compact Car')} title='Compact Cars' />
+                <AvailableCarsList vehicles={filterVehicleType('Compact Car')} navigation={navigation} title='Compact Cars' />
              </Spacer>
              <Spacer>
-               <AvailableCarsList vehicles={filterVehicleType('Suv')} title='Suv' />
+               <AvailableCarsList vehicles={filterVehicleType('Suv')} navigation={navigation} title='Suv' />
              </Spacer>
              <Spacer>
-                <AvailableCarsList vehicles={filterVehicleType('Luxury Car')} title='Sports Car' />
+                <AvailableCarsList vehicles={filterVehicleType('Luxury Car')} navigation={navigation} title='Sports Car' />
              </Spacer>  
           </ScrollView>
         </>

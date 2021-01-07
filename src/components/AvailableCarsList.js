@@ -7,7 +7,7 @@ const AvailableCarsList = ({ navigation, vehicles, title }) => {
   if (!vehicles.length) {
     return null;
   }
-
+console.log(navigation)
   return (
     <View style={styles.container}>
     <Text style={styles.title}> {title} </Text>
@@ -19,7 +19,10 @@ const AvailableCarsList = ({ navigation, vehicles, title }) => {
         renderItem={({ item }) => {
           return (
             <TouchableOpacity
-              onPress={() => console.log('Pressed')} >
+            onPress={() => {
+              navigation.navigate('CarDetail', {id: item.id})  
+             
+              }} >
               <AvailableCarsDetail result={item} />
             </TouchableOpacity>
           );

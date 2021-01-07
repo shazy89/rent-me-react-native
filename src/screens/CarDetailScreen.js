@@ -1,9 +1,9 @@
 import React from 'react';
-import { View, StyleSheet } from 'react-native';
+import { View, StyleSheet, Text } from 'react-native';
 
-const CarDetailScreen = ({ navigation }) => {
-
-  return <View style={styles.spacer}>HELLO FROM THE SCREEN</View>;
+const CarDetailScreen = ({ navigation, route }) => {
+console.log(route.params)
+  return <View style={styles.spacer}><Text>HELLO FROM THE SCREEN</Text></View>;
 };
 
 const styles = StyleSheet.create({

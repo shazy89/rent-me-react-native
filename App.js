@@ -32,7 +32,7 @@ function App() {
                      headerStyle: {
                      backgroundColor: '#ffa500',
         }, }} />
-                 <Stack.Screen name="Detail" component={CarDetailScreen} />
+                 <Stack.Screen name="CarDetail" component={CarDetailScreen} />
 
        </Stack.Navigator>
      </NavigationContainer>
