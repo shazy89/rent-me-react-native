@@ -9,7 +9,7 @@ const CarDetailScreen = ({ navigation, route, cars, dates }) => {
   return (
           <View style={styles.cardContainer}>
               <CarInfoCard car={car} dates={dates}/>
-             <Text style={styles.formCard}>{car.model}</Text>
+             <Text style={styles.formCard}>* Required to complete your reservation</Text>
           </View>
   )
 };
@@ -17,16 +17,14 @@ const CarDetailScreen = ({ navigation, route, cars, dates }) => {
 const styles = StyleSheet.create({
   cardContainer: {
       flexDirection: 'column',
-    
     },
     formCard: {
         borderColor: 'red',
-        borderWidth: 3,
+        borderWidth: 1,
       } 
    });
                  
    const mapStateToProps = store => {
-       
        return {
         cars: store.cars.cars,
         dates: store.dates
@@ -34,6 +32,8 @@ const styles = StyleSheet.create({
     };
    
    export default connect(mapStateToProps)(CarDetailScreen);
+    
+       
                  
 
 

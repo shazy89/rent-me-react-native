@@ -12,28 +12,41 @@ const CarInfoCard = ({car, dates}) => {
         setTotalCost(total)
         setTotalBookDays(Math.ceil(totalDays))
     };
-console.log(totalCost)
-console.log(totalBookDays)
 
     useEffect(() => {
         handleTotalCoast(dates.startDate, dates.endDate)
-    }, [])
-
+    }, [dates.startDate, dates.endDate])
+   // console.log(dates.startDate.toDateString())
   return (
     <View style={styles.infoCard}>
-    <Text style={styles.cardHeaderText}>
-       <Text >{car.make}</Text>
-          {"\n"}
-       <Text>   {car.model}</Text>
-    </Text>
-    <Image style={styles.cardImage} source={{uri: car.img}} />
-   <View style={styles.cardInfoText}>          
-      <Text>{car.vehicleType}</Text>
-      <Text>Capacity: {car.capacity}</Text>
-      <Text>Bags: {car.baggingCapacity}</Text>
-      <Text>Per-Day: ${car.rentPrice}</Text>
-    </View>    
-  </View>
+      <Text style={styles.cardHeaderText}>
+         <Text >{car.make}</Text>
+            {"\n"}
+         <Text>   {car.model}</Text>
+      </Text>
+     <Image style={styles.cardImage} source={{uri: car.img}} />
+     <View style={styles.cardInfoTextView}> 
+       <View style={styles.cardInfoText}>          
+         <Text>{car.vehicleType}</Text>
+         <Text>Capacity: {car.capacity}</Text>
+         <Text>Bags: {car.baggingCapacity}</Text>
+         <Text>Per-Day: ${car.rentPrice}.00</Text>
+       </View> 
+         <View>
+             <Text>Selected Dates:</Text>
+              <Text>Pick-Up: <Text style={{fontWeight: "bold"}}>  
+                   {dates.startDate.toDateString()}
+                    </Text></Text>
+              <Text>Return:<Text style={{fontWeight: "bold"}}> 
+                    {dates.startDate.toDateString()} 
+                    </Text></Text>
+                    <Text>Total Days: {totalBookDays} </Text>
+            <Text>Estimated Total:</Text> 
+            <Text style={{fontSize: 25}}>$ {totalCost}.00</Text>
+         </View>
+       </View>   
+   </View>
+               
   )
 };
 
@@ -55,6 +68,10 @@ const styles = StyleSheet.create({
         alignSelf: 'center', 
         fontFamily: "Cochin", 
         fontSize: 25
+    },
+    cardInfoTextView: {
+        flexDirection: 'row',
+        justifyContent: 'space-around'
     },
     cardInfoText: {
         alignSelf: 'flex-start', 
