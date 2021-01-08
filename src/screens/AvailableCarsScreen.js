@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, Text, Button, StyleSheet, ScrollView } from 'react-native';
+import { StyleSheet, ScrollView } from 'react-native';
 import useAvailableCars from '../hooks/useAvailableCars';
 import { connect } from 'react-redux';
 import AvailableCarsList from '../components/AvailableCarsList';

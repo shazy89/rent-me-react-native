@@ -25,22 +25,21 @@ const BottomNavigator = () => {
                 <Ionicons name="home" size={24} color="black" />
                ), 
              }}
-                   />
-          <Tab.Screen name="Test" component={Test} />
-        
-          <Tab.Screen name="Inventory" 
-                      component={InventoryScreen}
-                      options={{
-                        tabBarLabel: 'Inventory',
-                        tabBarIcon: () => (
-                          <Ionicons name="car-sport-outline" size={24} color="black" />
-                         ), 
-                       }}
+           />       
+          <Tab.Screen 
+             name="Inventory" 
+             component={InventoryScreen}
+             options={{
+               tabBarLabel: 'Inventory',
+               tabBarIcon: () => (
+                 <Ionicons name="car-sport-outline" size={24} color="black" />
+                ), 
+              }}
             />
-        
         </Tab.Navigator>
       </>
      );
     };
  export default BottomNavigator;
+        
 

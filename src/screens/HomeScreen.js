@@ -1,11 +1,9 @@
 import React from 'react'
-import { View, StyleSheet, FlatList, TouchableOpacity, ImageBackground } from 'react-native';
-import { ListItem, Text, Avatar, Image, Button } from 'react-native-elements';
+import { View, StyleSheet, ImageBackground } from 'react-native';
+import { Text, Button } from 'react-native-elements';
 import { connect } from 'react-redux';
 import SelectDates from '../components/SelectDates'
 import useDates from '../hooks/useDates';
-// import { fetchCars } from '../actions/index'
-
 
 const HomeScreen = ({ navigation, dates }) => {
    const { startDate, endDate } = dates;

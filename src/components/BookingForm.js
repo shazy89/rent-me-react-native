@@ -38,7 +38,6 @@ const BookingForm = ({carId, dates, navigation, bookingCar}) => {
       value={phoneNumber}
       onChangeText={setPhoneNumber}
     />
-      
     <Input
       value={emailAdress}
       placeholder='rentMe@email.com'
@@ -50,6 +49,7 @@ const BookingForm = ({carId, dates, navigation, bookingCar}) => {
   </View>
   );
 };
+      
       
 
 const styles = StyleSheet.create({
