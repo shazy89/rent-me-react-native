@@ -21,13 +21,13 @@ const CarDetailScreen = ({ navigation, route, cars }) => {
                    <Text>Capacity: {car.capacity}</Text>
                    <Text>Bags: {car.baggingCapacity}</Text>
                    <Text>Per-Day: ${car.rentPrice}</Text>
-                   
                  </View>    
              </View>
              <Text style={styles.formCard}>{car.model}</Text>
           </View>
   )
 };
+                   
                  
                  
 
@@ -54,7 +54,7 @@ const styles = StyleSheet.create({
     cardHeaderText: {
         alignSelf: 'center', 
         fontFamily: "Cochin", 
-        fontSize: 18
+        fontSize: 25
     },
     cardInfoText: {
         alignSelf: 'flex-start', 
