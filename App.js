@@ -23,7 +23,7 @@ function App() {
   return (
    <Provider store={store}>
      <NavigationContainer>
-       <Stack.Navigator screenOptions={{headerStyle: { backgroundColor: '#ffa500'}}}>
+       <Stack.Navigator screenOptions={{headerStyle: { backgroundColor: '#ffa500' }}}>
          <Stack.Screen name="BottomNavigator" component={BottomNavigator} options={{ headerShown: false }} />
          <Stack.Screen name="Test" component={Test} />
          <Stack.Screen name="List" component={TrackListScreen} />

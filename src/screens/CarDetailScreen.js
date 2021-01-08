@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, StyleSheet, Text } from 'react-native';
+import { View, StyleSheet, Text, Image } from 'react-native';
 import { connect } from 'react-redux';
 
 const CarDetailScreen = ({ navigation, route, cars }) => {
@@ -8,35 +8,72 @@ const CarDetailScreen = ({ navigation, route, cars }) => {
  console.log(car)
   return (
           <View style={styles.cardContainer}>
-             <Text style={styles.card}>
-              
+          
+             <View style={styles.infoCard}>
+                 <Text style={styles.cardHeaderText}>
+                    <Text >{car.make}</Text>
+                       {"\n"}
+                    <Text>   {car.model}</Text>
                  </Text>
-
-
-             <Text style={styles.form}>{car.model}</Text>
+                 <Image style={styles.cardImage} source={{uri: car.img}} />
+                 <Text>{car.vehicleType}</Text>
+                 <Text>Capacity</Text>
+                 <Text>rentPrice:</Text>
+                 <Text>Bags:</Text>
+                 <Text>total Days:</Text>
+                 
+             </View>
+                 
+             <Text style={styles.formCard}>{car.model}</Text>
           </View>
   )
 };
 
+
+
 const styles = StyleSheet.create({
   cardContainer: {
-    margin: 15,
-   },
-  card: {
-      borderColor: 'red',
-      borderWidth: 3,
-      height: '50%'
-  },
-  form: {
+      flexDirection: 'column',
+    
+    },
+    infoCard: {
+        borderColor: 'red',
+        borderWidth: 3,
+        flexDirection: 'column',
+        justifyContent: 'center',
+        alignItems: 'stretch',
+    },
+    cardImage: {
+      width: 300,
+      borderRadius: 4,
+      height: 200,
+      marginBottom: 5
+    },
+    cardHeaderText: {
+        alignSelf: 'center', 
+        fontFamily: "Cochin", 
+        fontSize: 18
+    },
+    formCard: {
+        borderColor: 'red',
+        borderWidth: 3,
+      } 
+   });
+  
+
+      
+  
+  
+        
+
+
+
    
-     borderColor: 'red',
-     borderWidth: 3,
-     height: '40%'
-  } 
+
+   
 
     
     
-});
 const mapStateToProps = store => {
     return {
      cars: store.cars.cars
