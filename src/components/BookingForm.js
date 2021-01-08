@@ -12,9 +12,10 @@ const BookingForm = ({carId, dates}) => {
     const  handleSubmit = (e) => {
         e.preventDefault();
         const bookInfo = {
-            booking: {startDate, endDate, firstName, lastName, phoneNumber, emailAdress, car_id }
+            booking: {startDate, endDate, firstName, lastName, phoneNumber, emailAdress, car_id: carId }
         }
-        bookCar(bookInfo, history)
+        console.log(bookInfo)
+        //bookCar(bookInfo, history)
     }
   return (
     <View >
@@ -40,7 +41,7 @@ const BookingForm = ({carId, dates}) => {
       onChangeText={setEmailAdress}
     />
     { firstName && lastName && phoneNumber && emailAdress ?
-    (<Button title="Submit" buttonStyle={styles.submitButton} onPress={() => console.log('submit')} />) : 
+    (<Button title="Submit" buttonStyle={styles.submitButton} onPress={handleSubmit} />) : 
     ((<Button title="Submit" buttonStyle={styles.submitButton} disabled  />))}
   </View>
   );

@@ -18,6 +18,26 @@ const addCars = (cars) => {
   };
 };
 
+const addBook = bookingData => {
+  return {
+    type: 'ADD_BOOKING',
+    peyload: bookingData
+  };
+};
+
+export const bookingCar = (carId, bookingData ) => {
+   return async dispatch => {
+     try {
+      const response = await rentMeApi.post(`cars/${carId}/bookings`, { bookingData });
+      dispatch(addBook(response))
+     } catch (err) {
+         console.log(err)
+     }
+
+   }
+};
+
+
       
 
         
