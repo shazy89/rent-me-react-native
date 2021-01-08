@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import {View, StyleSheet} from 'react-native';
 import { Button } from 'react-native-elements';
 import DateTimePicker from '@react-native-community/datetimepicker';
@@ -11,14 +11,15 @@ const SelectDates = ({ addPickUpDate, addReturnDate, fetchCars, cars }) => {
 
 const [pickUpDate, returnDate, showReturn, 
        showPickUp, showReturnCalender, showPickUpCalender, 
-       onChangePickUpDate, onChangeReturnDate, pickUpButton, returnButton ] = useSelectDate(addPickUpDate, addReturnDate);
+       onChangePickUpDate, onChangeReturnDate, pickUpButton, returnButton,
+       nextDay ] = useSelectDate(addPickUpDate, addReturnDate);
 
        useEffect(() => {
         if(cars.length === 0){
         fetchCars()
        };
      }, []);
-     
+
        return (
         <>
           <View style={styles.datePickerView}>
@@ -58,7 +59,7 @@ const [pickUpDate, returnDate, showReturn,
                  value={returnDate}
                  mode='date'
                  is24Hour={true}
-                 minimumDate={pickUpDate}
+                 minimumDate={returnDate}
                  display="spinner"
                  onChange={onChangeReturnDate}
                />
