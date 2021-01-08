@@ -2,6 +2,15 @@ import React from 'react';
 import { View, StyleSheet, Text, Image } from 'react-native';
 
 const CarInfoCard = ({car}) => {
+
+    const handleTotalCoast = () => {
+        let daysInTime = endDate.getTime() - startDate.getTime();
+        let totalDays = daysInTime / (1000 * 3600 * 24);
+        let total = Math.ceil(totalDays) * car.rentPrice
+        setTotalCost(total)
+        setTotalBookDays(Math.ceil(totalDays))
+    };
+    
   return (
     <View style={styles.infoCard}>
     <Text style={styles.cardHeaderText}>
