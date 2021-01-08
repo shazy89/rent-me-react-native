@@ -1,8 +1,6 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import { View, StyleSheet, Text, Image } from 'react-native';
-import { MaterialIcons } from '@expo/vector-icons'; 
-import { MaterialCommunityIcons } from '@expo/vector-icons'; 
-import { Ionicons } from '@expo/vector-icons'; 
+
 
 const InventoryCard = ({car, dates}) => {
 
@@ -10,9 +8,9 @@ const InventoryCard = ({car, dates}) => {
   return (
     <View style={styles.infoCard}>
    </View>
-               
   )
 };
+               
 
 const styles = StyleSheet.create({
     infoCard: {

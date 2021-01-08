@@ -88,9 +88,9 @@ const HomeScreen = ({ navigation, dates }) => {
         }
      });
            
-     const mapStateToProps = carsReducer => {
+     const mapStateToProps = store => {
         return {
-           dates: carsReducer.dates
+           dates: store.dates
         }
      };
        

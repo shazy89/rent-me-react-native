@@ -1,9 +1,9 @@
 import React from 'react';
-import { View, StyleSheet, Text, ScrollView } from 'react-native';
+import { View, StyleSheet, Text, ScrollView, FlatList } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { connect } from 'react-redux';
 
-const InventoryScreen = () => {
+const InventoryScreen = ({cars}) => {
 
   return (
     <SafeAreaView >
@@ -21,5 +21,9 @@ const styles = StyleSheet.create({
     flex: 1
    }
 });
-
-export default InventoryScreen;
+const mapStateToProps = store => {
+    return {
+        cars: store.cars.cars,
+    };
+ };
+export default connect(mapStateToProps)(InventoryScreen);
