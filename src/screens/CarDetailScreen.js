@@ -6,7 +6,11 @@ const CarDetailScreen = ({ navigation, route, cars }) => {
     
  const car = cars.find(t => t.id === route.params.id);
  console.log(car)
-  return <View style={styles.spacer}><Text>{car.make}</Text></View>;
+  return (
+          <View style={styles.spacer}>
+             <Text>{car.make}</Text>
+          </View>
+  )
 };
 
 const styles = StyleSheet.create({

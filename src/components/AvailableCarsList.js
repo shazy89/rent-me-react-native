@@ -6,7 +6,7 @@ const AvailableCarsList = ({ navigation, vehicles, title }) => {
 
   if (!vehicles.length) {
     return null;
-  }
+  };
 console.log(navigation)
   return (
     <View style={styles.container}>

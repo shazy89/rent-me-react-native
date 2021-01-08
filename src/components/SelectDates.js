@@ -12,14 +12,14 @@ const SelectDates = ({ addPickUpDate, addReturnDate, fetchCars, cars }) => {
 const [pickUpDate, returnDate, showReturn, 
        showPickUp, showReturnCalender, showPickUpCalender, 
        onChangePickUpDate, onChangeReturnDate, pickUpButton, returnButton,
-       nextDay ] = useSelectDate(addPickUpDate, addReturnDate);
+        ] = useSelectDate(addPickUpDate, addReturnDate);
 
        useEffect(() => {
         if(cars.length === 0){
         fetchCars()
        };
      }, []);
-
+ 
        return (
         <>
           <View style={styles.datePickerView}>
@@ -59,7 +59,7 @@ const [pickUpDate, returnDate, showReturn,
                  value={returnDate}
                  mode='date'
                  is24Hour={true}
-                 minimumDate={returnDate}
+                 minimumDate={pickUpDate}
                  display="spinner"
                  onChange={onChangeReturnDate}
                />
