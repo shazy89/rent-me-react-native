@@ -1,7 +1,13 @@
 import React, {useState} from 'react';
 import { View,StyleSheet } from 'react-native';
 import {  Text, Input, Button } from 'react-native-elements';
-const BookingForm = ({carId}) => {
+const BookingForm = ({carId, dates}) => {
+    const  { startDate, endDate } = dates;
+    const [firstName, setFirstName] = useState("");
+    const [lastName, setLastName] = useState("");
+    const [phoneNumber, setPhoneNumber] = useState("");
+    const [emailAdress, setEmailAdress] = useState("");
+console.log(firstName)
 
     const  handleSubmit = (e) => {
         e.preventDefault();
@@ -14,22 +20,25 @@ const BookingForm = ({carId}) => {
     <View >
        <Input
          placeholder='First Name'
-        
-         onChangeText={() => {}}
+         value={firstName}
+         onChangeText={setFirstName}
        />
        <Input
          placeholder='Last Name'
-         onChangeText={() => {}}
+         value={lastName}
+         onChangeText={setLastName}
        />
     <Input
       style={styles.input}
       placeholder='Phone Number'
-      onChangeText={() => {}}
+      value={phoneNumber}
+      onChangeText={setPhoneNumber}
     />
     <Input
       style={styles.input}
+      value={emailAdress}
       placeholder='rentMe@email.com'
-      onChangeText={() => {}}
+      onChangeText={setEmailAdress}
     />
     <Button title="Submit" buttonStyle={styles.submitButton} onPress={() => console.log('submit')} />
   </View>
