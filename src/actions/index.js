@@ -20,6 +20,7 @@ const addCars = (cars) => {
 };
 
 const addBook = bookingData => {
+  
   return {
     type: 'ADD_BOOKING',
     peyload: bookingData
@@ -28,12 +29,15 @@ const addBook = bookingData => {
 
 export const bookingCar = ( booking, navigation ) => {
    return async dispatch => {
+     
+    
+
      try {
-      const response = await rentMeApi.post(`cars/${booking.car_id}/bookings`, { booking });
+     // const response = await rentMeApi.post(`cars/${booking.car_id}/bookings`, { booking });
       
-      dispatch(addBook(response.data));
-      navigation.navigate('Home');
-      alert('Your reservation is complete!') 
+       dispatch(addBook(booking)); //response.data
+       navigation.navigate('Home');
+       alert('Your reservation is complete!') 
      } catch (err) {
          console.log(err)
      }

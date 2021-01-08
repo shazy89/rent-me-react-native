@@ -6,9 +6,14 @@ export default (state={cars: [] }, action) => {
                 cars: action.peyload
             }
             case "ADD_BOOKING":
-                const addBooking = 
-                 console.log(action.peyload) 
-                return state;  
+               const bookingAction = state.cars.map(car => {
+                   if(car.id == action.peyload.car_id){
+                   return car = { ...car, bookings: [...car.bookings, action.peyload ] }
+                   } else 
+                   return car
+               })  
+                    
+                return {...state, cars: bookingAction};  
                   
             
         default:
