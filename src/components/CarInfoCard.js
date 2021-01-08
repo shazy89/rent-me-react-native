@@ -1,5 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { View, StyleSheet, Text, Image } from 'react-native';
+import { MaterialIcons } from '@expo/vector-icons'; 
+import { MaterialCommunityIcons } from '@expo/vector-icons'; 
+import { Ionicons } from '@expo/vector-icons'; 
 
 const CarInfoCard = ({car, dates}) => {
     const [totalCost, setTotalCost] = useState("");
@@ -8,15 +11,16 @@ const CarInfoCard = ({car, dates}) => {
     const handleTotalCoast = (startDate, endDate) => {
         let daysInTime = endDate.getTime() - startDate.getTime();
         let totalDays = daysInTime / (1000 * 3600 * 24);
-        let total = Math.ceil(totalDays) * car.rentPrice
-        setTotalCost(total)
-        setTotalBookDays(Math.ceil(totalDays))
+        let total = Math.ceil(totalDays) * car.rentPrice;
+        setTotalCost(total);
+        setTotalBookDays(Math.ceil(totalDays));
     };
 
     useEffect(() => {
         handleTotalCoast(dates.startDate, dates.endDate)
-    }, [dates.startDate, dates.endDate])
-   // console.log(dates.startDate.toDateString())
+    }, [dates.startDate, dates.endDate]);
+
+
   return (
     <View style={styles.infoCard}>
       <Text style={styles.cardHeaderText}>
@@ -28,12 +32,15 @@ const CarInfoCard = ({car, dates}) => {
      <View style={styles.cardInfoTextView}> 
        <View style={styles.cardInfoText}>          
          <Text>{car.vehicleType}</Text>
-         <Text>Capacity: {car.capacity}</Text>
-         <Text>Bags: {car.baggingCapacity}</Text>
-         <Text>Per-Day: ${car.rentPrice}.00</Text>
+         <Text><MaterialIcons name="reduce-capacity" size={16} color="black" />
+              Capacity: {car.capacity}</Text>
+         <Text><MaterialCommunityIcons name="bag-checked" size={16} color="black" />
+              Bagging Capacity: {car.baggingCapacity}</Text>
+         <Text><Ionicons name="pricetag" size={16} color="black" />
+              Per-Day: ${car.rentPrice}.00</Text>
        </View> 
          <View>
-             <Text>Selected Dates:</Text>
+             <Text><MaterialIcons name="date-range" size={16} color="black" />Selected Dates:</Text>
               <Text>Pick-Up: <Text style={{fontWeight: "bold"}}>  
                    {dates.startDate.toDateString()}
                     </Text></Text>
@@ -42,7 +49,7 @@ const CarInfoCard = ({car, dates}) => {
                     </Text></Text>
                     <Text>Total Days: {totalBookDays} </Text>
             <Text>Estimated Total:</Text> 
-            <Text style={{fontSize: 25}}>$ {totalCost}.00</Text>
+            <Text style={{fontSize: 25, fontWeight: 'bold', alignSelf: 'flex-end'}}>$ {totalCost}.00</Text>
          </View>
        </View>   
    </View>
@@ -52,8 +59,7 @@ const CarInfoCard = ({car, dates}) => {
 
 const styles = StyleSheet.create({
     infoCard: {
-        borderColor: 'red',
-        borderWidth: 3,
+
         flexDirection: 'column',
         justifyContent: 'center',
         alignItems: 'stretch',
