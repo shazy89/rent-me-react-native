@@ -1,10 +1,22 @@
 import React from 'react';
 import { View, StyleSheet, Text, Image } from 'react-native';
 
-const CarInfoCard = () => {
+const CarInfoCard = ({car}) => {
   return (
-      <>
-      </>
+    <View style={styles.infoCard}>
+    <Text style={styles.cardHeaderText}>
+       <Text >{car.make}</Text>
+          {"\n"}
+       <Text>   {car.model}</Text>
+    </Text>
+    <Image style={styles.cardImage} source={{uri: car.img}} />
+   <View style={styles.cardInfoText}>          
+      <Text>{car.vehicleType}</Text>
+      <Text>Capacity: {car.capacity}</Text>
+      <Text>Bags: {car.baggingCapacity}</Text>
+      <Text>Per-Day: ${car.rentPrice}</Text>
+    </View>    
+  </View>
   )
 };
 

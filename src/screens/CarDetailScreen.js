@@ -1,28 +1,14 @@
 import React from 'react';
 import { View, StyleSheet, Text, Image } from 'react-native';
 import { connect } from 'react-redux';
-
+import CarInfoCard from '../components/CarInfoCard'
 const CarDetailScreen = ({ navigation, route, cars }) => {
     
  const car = cars.find(t => t.id === route.params.id);
  console.log(car)
   return (
           <View style={styles.cardContainer}>
-          
-             <View style={styles.infoCard}>
-                 <Text style={styles.cardHeaderText}>
-                    <Text >{car.make}</Text>
-                       {"\n"}
-                    <Text>   {car.model}</Text>
-                 </Text>
-                 <Image style={styles.cardImage} source={{uri: car.img}} />
-                <View style={styles.cardInfoText}>          
-                   <Text>{car.vehicleType}</Text>
-                   <Text>Capacity: {car.capacity}</Text>
-                   <Text>Bags: {car.baggingCapacity}</Text>
-                   <Text>Per-Day: ${car.rentPrice}</Text>
-                 </View>    
-             </View>
+              <CarInfoCard car={car}/>
              <Text style={styles.formCard}>{car.model}</Text>
           </View>
   )
