@@ -7,7 +7,7 @@ const BookingForm = ({carId, dates}) => {
     const [lastName, setLastName] = useState("");
     const [phoneNumber, setPhoneNumber] = useState("");
     const [emailAdress, setEmailAdress] = useState("");
-console.log(firstName)
+
 
     const  handleSubmit = (e) => {
         e.preventDefault();
@@ -29,21 +29,23 @@ console.log(firstName)
          onChangeText={setLastName}
        />
     <Input
-      style={styles.input}
       placeholder='Phone Number'
       value={phoneNumber}
       onChangeText={setPhoneNumber}
     />
+      
     <Input
-      style={styles.input}
       value={emailAdress}
       placeholder='rentMe@email.com'
       onChangeText={setEmailAdress}
     />
-    <Button title="Submit" buttonStyle={styles.submitButton} onPress={() => console.log('submit')} />
+    { firstName && lastName && phoneNumber && emailAdress ?
+    (<Button title="Submit" buttonStyle={styles.submitButton} onPress={() => console.log('submit')} />) : 
+    ((<Button title="Submit" buttonStyle={styles.submitButton} disabled  />))}
   </View>
   );
 };
+      
 
 const styles = StyleSheet.create({
     nameView: {
