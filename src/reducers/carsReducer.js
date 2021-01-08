@@ -1,4 +1,4 @@
-export default (state={cars: []}, action) => {
+export default (state={cars: [] }, action) => {
     switch(action.type) {
         case 'FETCH_CARS':
             return {
@@ -6,16 +6,10 @@ export default (state={cars: []}, action) => {
                 cars: action.peyload
             }
             case "ADD_BOOKING":
-
-                let cars2 = state.cars.map(car => {
-                    if(car.id === parseInt(action.bookingData.car_id)){
-                        return  car = { ...car, bookings: [...car.bookings, action.peyload ] }
-                       } else {
-                           return  car
-                       }
-                   })  
-                return {...state, cars: cars2,
-                 loading: false };     
+                const addBooking = 
+                 console.log(action.peyload) 
+                return state;  
+                  
             
         default:
             return state;

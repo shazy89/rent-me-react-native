@@ -1,23 +1,26 @@
 import React, {useState} from 'react';
+import { connect } from 'react-redux';
 import { View,StyleSheet } from 'react-native';
 import {  Text, Input, Button } from 'react-native-elements';
+import { bookingCar } from '../actions/index';
 
-const BookingForm = ({carId, dates, navigation}) => {
+const BookingForm = ({carId, dates, navigation, bookingCar}) => {
     const  { startDate, endDate } = dates;
+    
     const [firstName, setFirstName] = useState("");
     const [lastName, setLastName] = useState("");
     const [phoneNumber, setPhoneNumber] = useState("");
     const [emailAdress, setEmailAdress] = useState("");
-console.log(navigation)
+
 
     const  handleSubmit = (e) => {
         e.preventDefault();
         const bookInfo = {
-            booking: {startDate, endDate, firstName, lastName, phoneNumber, emailAdress, car_id: carId }
+            startDate, endDate, firstName, lastName, phoneNumber, emailAdress, car_id: carId
         }
-        console.log(bookInfo)
-        //bookCar(bookInfo, history)
-    }
+        bookingCar(bookInfo, navigation)
+    };
+      
   return (
     <View >
        <Input
@@ -58,7 +61,7 @@ const styles = StyleSheet.create({
    }
 });
 
-export default BookingForm;
+export default connect(null, { bookingCar })(BookingForm);
 
         
        
