@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, StyleSheet, Text, Image } from 'react-native';
+import { View, StyleSheet, Text } from 'react-native';
 import { connect } from 'react-redux';
 import CarInfoCard from '../components/CarInfoCard';
 import BookingForm from '../components/BookingForm'
@@ -11,11 +11,11 @@ const CarDetailScreen = ({ navigation, route, cars, dates }) => {
           <View style={styles.cardContainer}>
               <CarInfoCard car={car} dates={dates}/>
              <Text style={styles.formCard}>* Required to complete your reservation</Text>
-              <BookingForm carId={car.id} dates={dates}/>
-
+              <BookingForm carId={car.id} dates={dates} navigation={navigation}/>
           </View>
-  )
+  );
 };
+
                    
 const styles = StyleSheet.create({
   cardContainer: {

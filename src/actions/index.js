@@ -25,10 +25,10 @@ const addBook = bookingData => {
   };
 };
 
-export const bookingCar = (carId, bookingData ) => {
+export const bookingCar = ( bookingData ) => {
    return async dispatch => {
      try {
-      const response = await rentMeApi.post(`cars/${carId}/bookings`, { bookingData });
+      const response = await rentMeApi.post(`cars/${bookingData.car_id}/bookings`, { bookingData });
       dispatch(addBook(response))
      } catch (err) {
          console.log(err)

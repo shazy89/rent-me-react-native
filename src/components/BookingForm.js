@@ -1,13 +1,14 @@
 import React, {useState} from 'react';
 import { View,StyleSheet } from 'react-native';
 import {  Text, Input, Button } from 'react-native-elements';
-const BookingForm = ({carId, dates}) => {
+
+const BookingForm = ({carId, dates, navigation}) => {
     const  { startDate, endDate } = dates;
     const [firstName, setFirstName] = useState("");
     const [lastName, setLastName] = useState("");
     const [phoneNumber, setPhoneNumber] = useState("");
     const [emailAdress, setEmailAdress] = useState("");
-
+console.log(navigation)
 
     const  handleSubmit = (e) => {
         e.preventDefault();

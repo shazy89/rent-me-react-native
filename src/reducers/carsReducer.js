@@ -6,10 +6,10 @@ export default (state={cars: []}, action) => {
                 cars: action.peyload
             }
             case "ADD_BOOKING":
-                
+
                 let cars2 = state.cars.map(car => {
                     if(car.id === parseInt(action.bookingData.car_id)){
-                        return  car = { ...car, bookings: [...car.bookings, action.bookingData ] }
+                        return  car = { ...car, bookings: [...car.bookings, action.peyload ] }
                        } else {
                            return  car
                        }
