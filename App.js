@@ -12,6 +12,7 @@ import BottomNavigator from './src/BottomNavigator';
 import TrackListScreen from './TrackListScreen';
 import AvailableCarsScreen from './src/screens/AvailableCarsScreen'
 import CarDetailScreen from './src/screens/CarDetailScreen'
+import { SafeAreaProvider } from 'react-native-safe-area-context';
 
 const Stack = createStackNavigator();
 
@@ -23,6 +24,7 @@ function App() {
   return (
    <Provider store={store}>
      <NavigationContainer>
+     <SafeAreaProvider>
        <Stack.Navigator screenOptions={{headerStyle: { backgroundColor: '#ffa500' }}}>
          <Stack.Screen name="BottomNavigator" component={BottomNavigator} options={{ headerShown: false }} />
          <Stack.Screen name="Test" component={Test} />
@@ -32,6 +34,7 @@ function App() {
          <Stack.Screen name="CarDetail" component={CarDetailScreen} 
            options={{ title: 'RentMe' }}/>
        </Stack.Navigator>
+       </SafeAreaProvider>
      </NavigationContainer>
     </Provider>   
   );

@@ -1,8 +1,10 @@
 import React from 'react';
 import HomeScreen from './screens/HomeScreen';
+import InventoryScreen from './screens/InventoryScreen';
 import { createMaterialBottomTabNavigator } from '@react-navigation/material-bottom-tabs';
 import Test from '../Test';
 import { Ionicons } from '@expo/vector-icons';
+
 
 const Tab = createMaterialBottomTabNavigator();
 
@@ -25,6 +27,17 @@ const BottomNavigator = () => {
              }}
                    />
           <Tab.Screen name="Test" component={Test} />
+        
+          <Tab.Screen name="Inventory" 
+                      component={InventoryScreen}
+                      options={{
+                        tabBarLabel: 'Inventory',
+                        tabBarIcon: () => (
+                          <Ionicons name="car-sport-outline" size={24} color="black" />
+                         ), 
+                       }}
+            />
+        
         </Tab.Navigator>
       </>
      );

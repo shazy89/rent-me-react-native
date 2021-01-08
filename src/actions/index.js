@@ -29,21 +29,21 @@ const addBook = bookingData => {
 
 export const bookingCar = ( booking, navigation ) => {
    return async dispatch => {
+     try {
+      const response = await rentMeApi.post(`cars/${booking.car_id}/bookings`, { booking });
+      dispatch(addBook(response.data)); 
+      navigation.navigate('Home');
+      alert('Your reservation is complete!') 
+    } catch (err) {
+        console.log(err)
+    }
+
+  }
+};
+      
      
     
 
-     try {
-     // const response = await rentMeApi.post(`cars/${booking.car_id}/bookings`, { booking });
-      
-       dispatch(addBook(booking)); //response.data
-       navigation.navigate('Home');
-       alert('Your reservation is complete!') 
-     } catch (err) {
-         console.log(err)
-     }
-
-   }
-};
 
 
       
