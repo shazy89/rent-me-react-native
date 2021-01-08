@@ -16,18 +16,20 @@ const CarDetailScreen = ({ navigation, route, cars }) => {
                     <Text>   {car.model}</Text>
                  </Text>
                  <Image style={styles.cardImage} source={{uri: car.img}} />
-                 <Text>{car.vehicleType}</Text>
-                 <Text>Capacity</Text>
-                 <Text>rentPrice:</Text>
-                 <Text>Bags:</Text>
-                 <Text>total Days:</Text>
-                 
+                <View style={styles.cardInfoText}>          
+                   <Text>{car.vehicleType}</Text>
+                   <Text>Capacity: {car.capacity}</Text>
+                   <Text>Bags: {car.baggingCapacity}</Text>
+                   <Text>Per-Day: ${car.rentPrice}</Text>
+                   
+                 </View>    
              </View>
-                 
              <Text style={styles.formCard}>{car.model}</Text>
           </View>
   )
 };
+                 
+                 
 
 
 
@@ -53,6 +55,12 @@ const styles = StyleSheet.create({
         alignSelf: 'center', 
         fontFamily: "Cochin", 
         fontSize: 18
+    },
+    cardInfoText: {
+        alignSelf: 'flex-start', 
+        fontFamily: "Cochin", 
+        fontSize: 18,
+        marginLeft: 20 
     },
     formCard: {
         borderColor: 'red',
