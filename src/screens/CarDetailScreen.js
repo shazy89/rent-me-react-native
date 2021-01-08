@@ -7,16 +7,35 @@ const CarDetailScreen = ({ navigation, route, cars }) => {
  const car = cars.find(t => t.id === route.params.id);
  console.log(car)
   return (
-          <View style={styles.spacer}>
-             <Text>{car.make}</Text>
+          <View style={styles.cardContainer}>
+             <Text style={styles.card}>
+              
+                 </Text>
+
+
+             <Text style={styles.form}>{car.model}</Text>
           </View>
   )
 };
 
 const styles = StyleSheet.create({
-  spacer: {
-    margin: 15
-  }
+  cardContainer: {
+    margin: 15,
+   },
+  card: {
+      borderColor: 'red',
+      borderWidth: 3,
+      height: '50%'
+  },
+  form: {
+   
+     borderColor: 'red',
+     borderWidth: 3,
+     height: '40%'
+  } 
+
+    
+    
 });
 const mapStateToProps = store => {
     return {

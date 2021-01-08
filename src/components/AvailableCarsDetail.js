@@ -19,10 +19,10 @@ const AvailableCarsDetail = ({result}) => {
                {"\n"}
              </Text>
          </Text>   
-            
        </View>
    );
 };
+            
      
 
 const styles = StyleSheet.create({

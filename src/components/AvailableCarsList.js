@@ -7,7 +7,7 @@ const AvailableCarsList = ({ navigation, vehicles, title }) => {
   if (!vehicles.length) {
     return null;
   };
-console.log(navigation)
+
   return (
     <View style={styles.container}>
     <Text style={styles.title}> {title} </Text>
@@ -21,16 +21,16 @@ console.log(navigation)
             <TouchableOpacity
             onPress={() => {
               navigation.navigate('CarDetail', {id: item.id})  
-             
-              }} >
-              <AvailableCarsDetail result={item} />
-            </TouchableOpacity>
-          );
-        }}
-    />
-  </View>
-  )   
+            }} >
+            <AvailableCarsDetail result={item} />
+          </TouchableOpacity>
+        );
+      }}
+  />
+</View>
+)   
 };
+             
 
 const styles = StyleSheet.create({
   title: {
