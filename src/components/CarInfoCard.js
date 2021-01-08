@@ -1,16 +1,24 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { View, StyleSheet, Text, Image } from 'react-native';
 
-const CarInfoCard = ({car}) => {
+const CarInfoCard = ({car, dates}) => {
+    const [totalCost, setTotalCost] = useState("");
+    const [totalBookDays, setTotalBookDays] = useState("");
 
-    const handleTotalCoast = () => {
+    const handleTotalCoast = (startDate, endDate) => {
         let daysInTime = endDate.getTime() - startDate.getTime();
         let totalDays = daysInTime / (1000 * 3600 * 24);
         let total = Math.ceil(totalDays) * car.rentPrice
         setTotalCost(total)
         setTotalBookDays(Math.ceil(totalDays))
     };
-    
+console.log(totalCost)
+console.log(totalBookDays)
+
+    useEffect(() => {
+        handleTotalCoast(dates.startDate, dates.endDate)
+    }, [])
+
   return (
     <View style={styles.infoCard}>
     <Text style={styles.cardHeaderText}>
