@@ -54,12 +54,27 @@ After cloning this repo, first run the Rails server:
 
    ```
       cd ..  
-      cd rent-me-mob-app
+      cd rent-me-react-native
       npm install && expo start 
  ``` 
   These instructions are for who wish to use the XCode or Android Studio simulators instead of a physical device with Expo.
   Keep in mind, emulators require a lot of RAM, so you may find that bundling and displaying code takes much longer than when using a physical device.
   The official Expo docs with some troubleshooting tips are available here:
 
-  https://docs.expo.io/workflow/ios-simulator/?redirected - authomatic
-  [Expo](https://docs.expo.io/workflow/ios-simulator/?redirected)
+  [Expo iOS Simulator](https://docs.expo.io/workflow/ios-simulator/?redirected)
+  [Expo Android Studio Emulator](https://docs.expo.io/workflow/android-studio-emulator/?redirected)
+
+   ## macOS
+   ### XCode iOS Simulator
+
+    1. Download the full version of Xcode from the App Store. This is a huge file at around 7GB, so it can take a LONG time to download and install. It might seem like it it is stuck and not installing, but it is probably not.
+    2. Launch XCode and agree to its terms. It will start installing more tools and software
+    3. Eventually, you will get a "Welcome to XCode" screen
+    4. In the top menu bar, click "XCode", then "Preferences" and then "Locations".
+    5. Make sure that the "Command Line Tools" are installed and selected.
+    6. In the top menu bar, click XCode, then "Open Developer Tool" then click "Simulator"
+    7. This will open an iPhone simulator on your machine. If everything is working well, it should load a generic screen with a few apps.
+    8. Go to your terminal and in your React Native project directory, `run npm start`
+    9. When the Metro Bundler opens up in your browser, click on the option in the left sidebar to “Run on iOS simulator”
+    10.If you navigate back to your iPhone simulator you should see an “Open In Expo” button. Click Open.
+    11.This will launch the Expo application in the simulated device and run your bundled code. Eventually, it should load the `HomeScreen` screen.  
