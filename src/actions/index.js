@@ -20,13 +20,12 @@ const addCars = (cars) => {
 };
 
 const addBook = bookingData => {
-  
   return {
     type: 'ADD_BOOKING',
     peyload: bookingData
   };
 };
-
+  
 export const bookingCar = ( booking, navigation ) => {
    return async dispatch => {
      try {
@@ -40,6 +39,7 @@ export const bookingCar = ( booking, navigation ) => {
 
   }
 };
+
       
      
     

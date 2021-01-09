@@ -9,18 +9,16 @@ const CarDetailScreen = ({ navigation, route, cars, dates }) => {
  const car = cars.find(t => t.id === route.params.id);
 
   return (
-         
-          <View style={styles.cardContainer}>
-             <ScrollView showsVerticalScrollIndicator ={false} >
-              <CarInfoCard car={car} dates={dates}/>
-             <Text style={styles.formCard}>* Required to complete your reservation</Text>
-              <BookingForm carId={car.id} dates={dates} navigation={navigation}/>
-              </ScrollView>   
-          </View>
-  );
+      <View style={styles.cardContainer}>
+         <ScrollView showsVerticalScrollIndicator ={false} >
+          <CarInfoCard car={car} dates={dates}/>
+         <Text style={styles.formCard}>* Required to complete your reservation</Text>
+          <BookingForm carId={car.id} dates={dates} navigation={navigation}/>
+          </ScrollView>   
+      </View>
+ );
 };
-
-                   
+         
 const styles = StyleSheet.create({
   cardContainer: {
       flexDirection: 'column',
@@ -30,7 +28,6 @@ const styles = StyleSheet.create({
         borderWidth: 1,
       } 
    });
-                 
    const mapStateToProps = store => {
        return {
         cars: store.cars.cars,
@@ -39,6 +36,9 @@ const styles = StyleSheet.create({
     };
    
    export default connect(mapStateToProps)(CarDetailScreen);
+
+                   
+                 
     
        
                  

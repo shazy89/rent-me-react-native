@@ -23,12 +23,9 @@ const AvailableCarsDetail = ({result}) => {
    );
 };
             
-     
-
 const styles = StyleSheet.create({
     container: {
         marginLeft: 15,
-        
         borderRadius: 4,
         borderBottomColor: 'black',
         width: 340,
@@ -65,6 +62,9 @@ const styles = StyleSheet.create({
      
 
 export default AvailableCarsDetail;
+     
+
+        
             
   
 

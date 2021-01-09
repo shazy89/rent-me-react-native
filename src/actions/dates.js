@@ -10,19 +10,7 @@ export const addReturnDate = (endDate) => {
     };
 };
  
- // export const getSearchDates = (stDate, endDate ) => {
- //       let days = [];
- //       const daysInTime = endDate.getTime() - stDate.getTime();
- //       const totalDays = daysInTime / (1000 * 3600 * 24);
- //     for (let i = 0; i < Math.ceil(totalDays); i++){
- //       let nextDay = stDate;
- //       
- //       nextDay.setDate(nextDay.getDate() + i)
- //       days = [...days, nextDay]
- //      };
- // 
- //      return days
- //   }; 
+
 
         
 
