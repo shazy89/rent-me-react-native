@@ -43,7 +43,15 @@ const styles = StyleSheet.create({
         backgroundColor: '#D6D6D6', 
         marginBottom: 5,
         marginLeft: 10,
-        marginRight: 10},
+        marginRight: 10,
+        shadowColor: '#000000',
+        shadowOffset: {
+          width: 0,
+          height: 3
+        },
+        shadowRadius: 4,
+        shadowOpacity: 1.0
+    },
     textContent: {
         fontSize: 14,
         alignSelf: 'center'
