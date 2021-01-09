@@ -8,8 +8,8 @@ Admin has the ability to manage the cars, upload images for new car postings, an
 RentMe is (SPA) car rental app where users can search for available cars on selected dates, check for prices and schedule a booking. Admin users can use tools for creating new available cars, 
  edit listings, upload images to listings and view reports on bookings.
 
- ![Image]
- (https://res.cloudinary.com/dytheecsk/image/upload/v1610213769/Screen_Shot_2021-01-09_at_12.35.15_PM_zxwj2y.png)
+ ![Image of RentMe](https://res.cloudinary.com/dytheecsk/image/upload/v1610213769/Screen_Shot_2021-01-09_at_12.35.15_PM_zxwj2y.png)
+ 
 
 # Prerequisites
 
