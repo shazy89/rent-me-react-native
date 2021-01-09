@@ -61,7 +61,7 @@ After cloning this repo, first run the Rails server:
   Keep in mind, emulators require a lot of RAM, so you may find that bundling and displaying code takes much longer than when using a physical device.
   The official Expo docs with some troubleshooting tips are available here:
 
-  [Expo iOS Simulator](https://docs.expo.io/workflow/ios-simulator/?redirected)
+  [Expo iOS Simulator](https://docs.expo.io/workflow/ios-simulator/?redirected) -
   [Expo Android Studio Emulator](https://docs.expo.io/workflow/android-studio-emulator/?redirected)
 
    ## macOS
