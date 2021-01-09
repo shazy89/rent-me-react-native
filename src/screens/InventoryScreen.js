@@ -3,6 +3,7 @@ import { View, StyleSheet, ScrollView, FlatList} from 'react-native';
 import { Text, Image } from 'react-native-elements';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { connect } from 'react-redux';
+import InventoryCard from '../components/InventoryCard';
 
 const InventoryScreen = ({cars}) => {
 
@@ -19,7 +20,7 @@ return (
           renderItem={({ item }) => {
             return (
                 <ScrollView           >   
-
+                  <InventoryCard car={item}/>
                </ScrollView> 
           );
         }}
