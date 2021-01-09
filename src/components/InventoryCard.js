@@ -1,9 +1,10 @@
 import React from 'react';
 import { View, StyleSheet, Image } from 'react-native';
-import { ListItem, Text, Avatar } from 'react-native-elements'
+import {  Text } from 'react-native-elements'
+import { FontAwesome } from '@expo/vector-icons'; 
+import { MaterialCommunityIcons } from '@expo/vector-icons'; 
 
 const InventoryCard = ({ car }) => {
-console.log(car)
 
   return (
     <View style={styles.cardContainer}> 
@@ -13,14 +14,26 @@ console.log(car)
         <View style={styles.textContainer}>
             <View >
                <Text style={styles.textHeader}>{car.make}</Text>
-               <Text style={styles.textHeader}>{car.model}</Text>
+               <Text style={{fontWeight: 'bold', fontSize: 16, marginLeft: 15 }}>{car.model}</Text>
+            </View>
+            <View>
+                <Text>{car.vehicleType}</Text>
+                <Text style={styles.textContent}>
+                      <FontAwesome name="users" size={16} color="black" />
+                   {car.capacity} people</Text>
+                <Text style={styles.textContent}>
+                      <MaterialCommunityIcons name="bag-checked" size={16} color="black" />
+                   {car.baggingCapacity} Bags</Text>
+            </View>
+            <View style={styles.priceView}>
+                <Text >Pay Later</Text>
+                <Text style={styles.priceText}>$ {car.rentPrice}.00</Text>
             </View>
         </View>
     </View> 
   );
 };
-               
-
+             
 const styles = StyleSheet.create({
     cardContainer: { 
         flexDirection: 'row',
@@ -31,20 +44,27 @@ const styles = StyleSheet.create({
         marginBottom: 5,
         marginLeft: 10,
         marginRight: 10},
-    textContainer: {},
+    textContent: {
+        fontSize: 14,
+        alignSelf: 'center'
+    },
     textHeader: {
         fontWeight: 'bold',
         fontSize: 20
     },
-    cardStyle: {
-
-     },
-     imgView: {
-
+    priceView: {
+      marginLeft: 30,
+      borderColor: 'red'
+    },
+    priceText: {
+        fontSize: 18,
+        fontWeight: '600'
      },
      img: {
        height: 150,
        width: 240
      }
 });
+               
+
 export default InventoryCard;
