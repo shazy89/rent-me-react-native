@@ -2,7 +2,6 @@ import React from 'react';
 import HomeScreen from './screens/HomeScreen';
 import InventoryScreen from './screens/InventoryScreen';
 import { createMaterialBottomTabNavigator } from '@react-navigation/material-bottom-tabs';
-import Test from '../Test';
 import { Ionicons } from '@expo/vector-icons';
 
 

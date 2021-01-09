@@ -1,7 +1,7 @@
 import React, {useState} from 'react';
 import { connect } from 'react-redux';
 import { View,StyleSheet } from 'react-native';
-import {  Text, Input, Button } from 'react-native-elements';
+import {  Input, Button } from 'react-native-elements';
 import { bookingCar } from '../actions/index';
 
 const BookingForm = ({carId, dates, navigation, bookingCar}) => {
