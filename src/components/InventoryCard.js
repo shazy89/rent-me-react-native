@@ -2,43 +2,29 @@ import React from 'react';
 import { View, StyleSheet, Text, Image } from 'react-native';
 
 
-const InventoryCard = ({car, dates}) => {
+const InventoryCard = ({ car }) => {
 
 
   return (
-    <View style={styles.infoCard}>
-   </View>
+    <View style={styles.cardStyle}> 
+        <Image style={styles.img} source={{uri: item.img}}/>
+    </View> 
   )
 };
                
 
 const styles = StyleSheet.create({
-    infoCard: {
-
-        flexDirection: 'column',
-        justifyContent: 'center',
-        alignItems: 'stretch',
-    },
-    cardImage: {
-      width: 300,
-      borderRadius: 4,
-      height: 200,
-      marginBottom: 5
-    },
-    cardHeaderText: {
-        alignSelf: 'center', 
-        fontFamily: "Cochin", 
-        fontSize: 25
-    },
-    cardInfoTextView: {
-        flexDirection: 'row',
-        justifyContent: 'space-around'
-    },
-    cardInfoText: {
-        alignSelf: 'flex-start', 
-        fontFamily: "Cochin", 
-        fontSize: 18,
-        marginLeft: 20 
-    },
+    cardStyle: {
+        height: 200,
+        borderWidth: 1, 
+        backgroundColor: 'orange', 
+        marginBottom: 5,
+        marginLeft: 30,
+        marginRight: 30
+     },
+     img: {
+       height: 150,
+       width: 240
+     }
 })
 export default InventoryCard;
